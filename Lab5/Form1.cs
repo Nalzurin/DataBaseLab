@@ -522,7 +522,7 @@ namespace Lab5
                         texts.Add(new TextBox() { Left = 200, Width = 250, Height = 100, Top = 70 + (30 * i) });
                         columns.Add(dataGridView7.Columns[i].HeaderText.ToString());
                     }
- 
+
                     break;
                 case 7:
                     for (int i = 1 - j; i < dataGridView8.ColumnCount; i++)
@@ -590,7 +590,167 @@ namespace Lab5
 
             }
         }
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            //First check if anything is written in the search field
+            if (searchBox.Text == "")
+            {
+                MessageBox.Show("Error, search field cannot be empty!");
+                return;
+            }
 
+            //Variables
+            int tabIndex = tabControl1.SelectedIndex;
+            List<String> columns = new List<String>();
+            bool isString = true, isInt = false, isDate = false;
+            string text = searchBox.Text;
+            //New Table for Searching
+            OleDbDataAdapter tableSearch;
+            DataTable tableSearchData = new DataTable();
+            //New Form for showing results of search
+            DataGridView searchView = new DataGridView();
+            Form SearchResult = new Form();
+            SearchResult.FormBorderStyle = FormBorderStyle.FixedDialog;
+            SearchResult.StartPosition = FormStartPosition.CenterScreen;
+            SearchResult.Width = 750;
+            SearchResult.Height = 500;
+            searchView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            searchView.Dock = DockStyle.Fill;
+            searchView.ReadOnly = true;
+            searchView.AllowUserToAddRows = false;
+            searchView.AllowUserToDeleteRows = false;
+            SearchResult.Controls.Add(searchView);
+            if(int.TryParse(text, out _))
+            {
+                isInt = true;
+                isString = false;
+                isDate = false;
+            }
+            else if (System.DateTime.TryParse(text, out _))
+            {
+                isInt = false;
+                isString = false;
+                isDate = true;
+            }
+
+            switch (tabIndex)
+
+            {
+                case 0:
+
+                    for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                    {
+                        if (dataGridView1.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView1.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView1.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView1.Columns[i].HeaderText.ToString());
+                        }
+                    }
+                    break;
+                case 1:
+                    for (int i = 0; i < dataGridView2.ColumnCount; i++)
+                    {
+                        if (dataGridView2.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView2.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView2.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView2.Columns[i].HeaderText.ToString());
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < dataGridView3.ColumnCount; i++)
+                    {
+                        if (dataGridView3.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView3.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView3.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView3.Columns[i].HeaderText.ToString());
+                        }
+                    }
+
+                    break;
+                case 3:
+                    for (int i = 0; i < dataGridView4.ColumnCount; i++)
+                    {
+                        if (dataGridView4.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView4.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView4.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView4.Columns[i].HeaderText.ToString());
+                        }
+                    }
+
+                    break;
+                case 4:
+                    for (int i = 0; i < dataGridView5.ColumnCount; i++)
+                    {
+                        if (dataGridView5.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView5.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView5.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView5.Columns[i].HeaderText.ToString());
+                        }
+                    }
+
+                    break;
+                case 5:
+                    for (int i = 0; i < dataGridView6.ColumnCount; i++)
+                    {
+                        if (dataGridView6.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView6.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView6.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView6.Columns[i].HeaderText.ToString());
+                        }
+                    }
+
+                    break;
+                case 6:
+                    for (int i = 0; i < dataGridView7.ColumnCount; i++)
+                    {
+                        if (dataGridView7.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView7.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView7.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView7.Columns[i].HeaderText.ToString());
+                        }
+                    }
+
+                    break;
+                case 7:
+                    for (int i = 0; i < dataGridView8.ColumnCount; i++)
+                    {
+                        if (dataGridView8.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView8.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView8.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView8.Columns[i].HeaderText.ToString());
+                        }
+                    }
+
+                    break;
+                case 8:
+                    for (int i = 0; i < dataGridView9.ColumnCount; i++)
+                    {
+                        if(dataGridView9.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        {
+                            columns.Add(dataGridView9.Columns[i].HeaderText.ToString());
+                        }
+                    }
+
+                    break;
+            }
+            query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE ";
+            for( int i = 0; i < columns.Count;i++)
+            {
+                if(isInt == true)
+                {
+                    query += "[" + columns[i] + "] = " + searchBox.Text + "";
+                }
+                else
+                {
+                    query += "[" + columns[i] + "] = '" + searchBox.Text + "'";
+                }
+                
+                if(i != columns.Count-1)
+                {
+                    query += " OR ";
+                }
+            }
+            query += ";";
+            searchView.DataSource = null;
+            tableSearch = new OleDbDataAdapter(query,connection);
+            tableSearch.Fill(tableSearchData);
+            searchView.DataSource = tableSearchData;
+            SearchResult.Show();
+            RefreshTables();
+        }
     }
 }
 

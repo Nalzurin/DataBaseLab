@@ -124,6 +124,8 @@
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -561,6 +563,7 @@
             this.iDКнигиDataGridViewTextBoxColumn1.HeaderText = "ID Книги";
             this.iDКнигиDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.iDКнигиDataGridViewTextBoxColumn1.Name = "iDКнигиDataGridViewTextBoxColumn1";
+            this.iDКнигиDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // iSBNDataGridViewTextBoxColumn
             // 
@@ -568,6 +571,7 @@
             this.iSBNDataGridViewTextBoxColumn.HeaderText = "ISBN";
             this.iSBNDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iSBNDataGridViewTextBoxColumn.Name = "iSBNDataGridViewTextBoxColumn";
+            this.iSBNDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // типПалітуркиDataGridViewTextBoxColumn
             // 
@@ -575,6 +579,7 @@
             this.типПалітуркиDataGridViewTextBoxColumn.HeaderText = "Тип Палітурки";
             this.типПалітуркиDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.типПалітуркиDataGridViewTextBoxColumn.Name = "типПалітуркиDataGridViewTextBoxColumn";
+            this.типПалітуркиDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // технічнийСтанDataGridViewTextBoxColumn
             // 
@@ -582,6 +587,7 @@
             this.технічнийСтанDataGridViewTextBoxColumn.HeaderText = "Технічний Стан";
             this.технічнийСтанDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.технічнийСтанDataGridViewTextBoxColumn.Name = "технічнийСтанDataGridViewTextBoxColumn";
+            this.технічнийСтанDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // книгаBindingSource1
             // 
@@ -630,6 +636,7 @@
             this.iDПрацівникаDataGridViewTextBoxColumn1.HeaderText = "ID працівника";
             this.iDПрацівникаDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.iDПрацівникаDataGridViewTextBoxColumn1.Name = "iDПрацівникаDataGridViewTextBoxColumn1";
+            this.iDПрацівникаDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // імяDataGridViewTextBoxColumn1
             // 
@@ -637,6 +644,7 @@
             this.імяDataGridViewTextBoxColumn1.HeaderText = "Ім\'я";
             this.імяDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.імяDataGridViewTextBoxColumn1.Name = "імяDataGridViewTextBoxColumn1";
+            this.імяDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // прізвищеDataGridViewTextBoxColumn1
             // 
@@ -644,6 +652,7 @@
             this.прізвищеDataGridViewTextBoxColumn1.HeaderText = "Прізвище";
             this.прізвищеDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.прізвищеDataGridViewTextBoxColumn1.Name = "прізвищеDataGridViewTextBoxColumn1";
+            this.прізвищеDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // поБатьковіDataGridViewTextBoxColumn1
             // 
@@ -651,6 +660,7 @@
             this.поБатьковіDataGridViewTextBoxColumn1.HeaderText = "По-Батькові";
             this.поБатьковіDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.поБатьковіDataGridViewTextBoxColumn1.Name = "поБатьковіDataGridViewTextBoxColumn1";
+            this.поБатьковіDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // позиціяDataGridViewTextBoxColumn1
             // 
@@ -658,6 +668,7 @@
             this.позиціяDataGridViewTextBoxColumn1.HeaderText = "Позиція";
             this.позиціяDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.позиціяDataGridViewTextBoxColumn1.Name = "позиціяDataGridViewTextBoxColumn1";
+            this.позиціяDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // підрозділDataGridViewTextBoxColumn1
             // 
@@ -665,6 +676,7 @@
             this.підрозділDataGridViewTextBoxColumn1.HeaderText = "Підрозділ";
             this.підрозділDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.підрозділDataGridViewTextBoxColumn1.Name = "підрозділDataGridViewTextBoxColumn1";
+            this.підрозділDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // стажРоботиDataGridViewTextBoxColumn1
             // 
@@ -672,6 +684,7 @@
             this.стажРоботиDataGridViewTextBoxColumn1.HeaderText = "Стаж Роботи";
             this.стажРоботиDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.стажРоботиDataGridViewTextBoxColumn1.Name = "стажРоботиDataGridViewTextBoxColumn1";
+            this.стажРоботиDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // працівникBindingSource
             // 
@@ -715,6 +728,7 @@
             this.назваНапрямкуDataGridViewTextBoxColumn.HeaderText = "Назва Напрямку";
             this.назваНапрямкуDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.назваНапрямкуDataGridViewTextBoxColumn.Name = "назваНапрямкуDataGridViewTextBoxColumn";
+            this.назваНапрямкуDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // описDataGridViewTextBoxColumn
             // 
@@ -722,6 +736,7 @@
             this.описDataGridViewTextBoxColumn.HeaderText = "Опис";
             this.описDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.описDataGridViewTextBoxColumn.Name = "описDataGridViewTextBoxColumn";
+            this.описDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // напрямокBindingSource
             // 
@@ -769,6 +784,7 @@
             this.iSBNКнигиDataGridViewTextBoxColumn.HeaderText = "ISBN Книги";
             this.iSBNКнигиDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iSBNКнигиDataGridViewTextBoxColumn.Name = "iSBNКнигиDataGridViewTextBoxColumn";
+            this.iSBNКнигиDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // назваКнигиDataGridViewTextBoxColumn
             // 
@@ -776,6 +792,7 @@
             this.назваКнигиDataGridViewTextBoxColumn.HeaderText = "Назва Книги";
             this.назваКнигиDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.назваКнигиDataGridViewTextBoxColumn.Name = "назваКнигиDataGridViewTextBoxColumn";
+            this.назваКнигиDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // назваНапрямуDataGridViewTextBoxColumn
             // 
@@ -783,6 +800,7 @@
             this.назваНапрямуDataGridViewTextBoxColumn.HeaderText = "Назва Напряму";
             this.назваНапрямуDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.назваНапрямуDataGridViewTextBoxColumn.Name = "назваНапрямуDataGridViewTextBoxColumn";
+            this.назваНапрямуDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // імяАвтораDataGridViewTextBoxColumn1
             // 
@@ -790,6 +808,7 @@
             this.імяАвтораDataGridViewTextBoxColumn1.HeaderText = "Ім\'я Автора";
             this.імяАвтораDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.імяАвтораDataGridViewTextBoxColumn1.Name = "імяАвтораDataGridViewTextBoxColumn1";
+            this.імяАвтораDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // датаНаписанняDataGridViewTextBoxColumn
             // 
@@ -797,6 +816,7 @@
             this.датаНаписанняDataGridViewTextBoxColumn.HeaderText = "Дата Написання";
             this.датаНаписанняDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.датаНаписанняDataGridViewTextBoxColumn.Name = "датаНаписанняDataGridViewTextBoxColumn";
+            this.датаНаписанняDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // кількістьСторінокDataGridViewTextBoxColumn
             // 
@@ -804,6 +824,7 @@
             this.кількістьСторінокDataGridViewTextBoxColumn.HeaderText = "Кількість Сторінок";
             this.кількістьСторінокDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.кількістьСторінокDataGridViewTextBoxColumn.Name = "кількістьСторінокDataGridViewTextBoxColumn";
+            this.кількістьСторінокDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // пишеBindingSource1
             // 
@@ -849,6 +870,7 @@
             this.iDСховищаDataGridViewTextBoxColumn1.HeaderText = "ID Сховища";
             this.iDСховищаDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.iDСховищаDataGridViewTextBoxColumn1.Name = "iDСховищаDataGridViewTextBoxColumn1";
+            this.iDСховищаDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // адресаDataGridViewTextBoxColumn
             // 
@@ -856,6 +878,7 @@
             this.адресаDataGridViewTextBoxColumn.HeaderText = "Адреса";
             this.адресаDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.адресаDataGridViewTextBoxColumn.Name = "адресаDataGridViewTextBoxColumn";
+            this.адресаDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // кількістьМісцьDataGridViewTextBoxColumn
             // 
@@ -863,6 +886,7 @@
             this.кількістьМісцьDataGridViewTextBoxColumn.HeaderText = "Кількість Місць";
             this.кількістьМісцьDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.кількістьМісцьDataGridViewTextBoxColumn.Name = "кількістьМісцьDataGridViewTextBoxColumn";
+            this.кількістьМісцьDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // кількістьЗайнятихМісцьDataGridViewTextBoxColumn
             // 
@@ -870,6 +894,7 @@
             this.кількістьЗайнятихМісцьDataGridViewTextBoxColumn.HeaderText = "Кількість Зайнятих Місць";
             this.кількістьЗайнятихМісцьDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.кількістьЗайнятихМісцьDataGridViewTextBoxColumn.Name = "кількістьЗайнятихМісцьDataGridViewTextBoxColumn";
+            this.кількістьЗайнятихМісцьDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // сховищеBindingSource
             // 
@@ -1008,7 +1033,7 @@
             // Delete
             // 
             this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Delete.Location = new System.Drawing.Point(768, 471);
+            this.Delete.Location = new System.Drawing.Point(417, 471);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(113, 45);
             this.Delete.TabIndex = 1;
@@ -1019,7 +1044,7 @@
             // Add
             // 
             this.Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Add.Location = new System.Drawing.Point(530, 471);
+            this.Add.Location = new System.Drawing.Point(179, 471);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(113, 45);
             this.Add.TabIndex = 2;
@@ -1030,7 +1055,7 @@
             // Edit
             // 
             this.Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Edit.Location = new System.Drawing.Point(649, 471);
+            this.Edit.Location = new System.Drawing.Point(298, 471);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(113, 45);
             this.Edit.TabIndex = 3;
@@ -1038,11 +1063,31 @@
             this.Edit.UseVisualStyleBackColor = true;
             this.Edit.Click += new System.EventHandler(this.EditButton_Click);
             // 
+            // searchButton
+            // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.Location = new System.Drawing.Point(768, 471);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(113, 45);
+            this.searchButton.TabIndex = 4;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(618, 484);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(144, 20);
+            this.searchBox.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 528);
+            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.Edit);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.Delete);
@@ -1091,6 +1136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.пишеBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.авторBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1191,6 +1237,8 @@
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button Edit;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.TextBox searchBox;
     }
 }
 

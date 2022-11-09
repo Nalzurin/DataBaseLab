@@ -617,18 +617,18 @@
   <xs:element name="Lab5DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Lab5DataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Lab5DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Автор" msprop:Generator_RowClassName="АвторRow" msprop:Generator_RowEvHandlerName="АвторRowChangeEventHandler" msprop:Generator_RowDeletedName="АвторRowDeleted" msprop:Generator_RowDeletingName="АвторRowDeleting" msprop:Generator_RowEvArgName="АвторRowChangeEvent" msprop:Generator_TablePropName="Автор" msprop:Generator_RowChangedName="АвторRowChanged" msprop:Generator_UserTableName="Автор" msprop:Generator_RowChangingName="АвторRowChanging" msprop:Generator_TableClassName="АвторDataTable" msprop:Generator_TableVarName="tableАвтор">
+        <xs:element name="Автор" msprop:Generator_RowEvHandlerName="АвторRowChangeEventHandler" msprop:Generator_RowDeletedName="АвторRowDeleted" msprop:Generator_RowDeletingName="АвторRowDeleting" msprop:Generator_RowEvArgName="АвторRowChangeEvent" msprop:Generator_TablePropName="Автор" msprop:Generator_RowChangedName="АвторRowChanged" msprop:Generator_UserTableName="Автор" msprop:Generator_RowChangingName="АвторRowChanging" msprop:Generator_RowClassName="АвторRow" msprop:Generator_TableClassName="АвторDataTable" msprop:Generator_TableVarName="tableАвтор">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Ім_x0027_я_x0020_Автора" msprop:Generator_UserColumnName="Ім'я Автора" msprop:Generator_ColumnPropNameInTable="_Ім_я_АвтораColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я_Автора" msprop:Generator_ColumnVarNameInTable="_columnІм_я_Автора">
+              <xs:element name="Ім_x0027_я_x0020_Автора" msprop:Generator_ColumnPropNameInTable="_Ім_я_АвтораColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я_Автора" msprop:Generator_UserColumnName="Ім'я Автора" msprop:Generator_ColumnVarNameInTable="_columnІм_я_Автора">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Дата_x0020_Народження" msprop:Generator_UserColumnName="Дата Народження" msprop:Generator_ColumnPropNameInTable="Дата_НародженняColumn" msprop:Generator_ColumnPropNameInRow="Дата_Народження" msprop:Generator_ColumnVarNameInTable="columnДата_Народження" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Magnum_x0020_Opus" msprop:Generator_UserColumnName="Magnum Opus" msprop:Generator_ColumnPropNameInTable="Magnum_OpusColumn" msprop:Generator_ColumnPropNameInRow="Magnum_Opus" msprop:Generator_ColumnVarNameInTable="columnMagnum_Opus" minOccurs="0">
+              <xs:element name="Дата_x0020_Народження" msprop:Generator_ColumnPropNameInTable="Дата_НародженняColumn" msprop:Generator_ColumnPropNameInRow="Дата_Народження" msprop:Generator_UserColumnName="Дата Народження" msprop:Generator_ColumnVarNameInTable="columnДата_Народження" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Magnum_x0020_Opus" msprop:Generator_ColumnPropNameInTable="Magnum_OpusColumn" msprop:Generator_ColumnPropNameInRow="Magnum_Opus" msprop:Generator_UserColumnName="Magnum Opus" msprop:Generator_ColumnVarNameInTable="columnMagnum_Opus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -638,105 +638,85 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Бібліотекар" msprop:Generator_RowClassName="БібліотекарRow" msprop:Generator_RowEvHandlerName="БібліотекарRowChangeEventHandler" msprop:Generator_RowDeletedName="БібліотекарRowDeleted" msprop:Generator_RowDeletingName="БібліотекарRowDeleting" msprop:Generator_RowEvArgName="БібліотекарRowChangeEvent" msprop:Generator_TablePropName="Бібліотекар" msprop:Generator_RowChangedName="БібліотекарRowChanged" msprop:Generator_UserTableName="Бібліотекар" msprop:Generator_RowChangingName="БібліотекарRowChanging" msprop:Generator_TableClassName="БібліотекарDataTable" msprop:Generator_TableVarName="tableБібліотекар">
+        <xs:element name="Бібліотекар" msprop:Generator_RowEvHandlerName="БібліотекарRowChangeEventHandler" msprop:Generator_RowDeletedName="БібліотекарRowDeleted" msprop:Generator_RowDeletingName="БібліотекарRowDeleting" msprop:Generator_RowEvArgName="БібліотекарRowChangeEvent" msprop:Generator_TablePropName="Бібліотекар" msprop:Generator_RowChangedName="БібліотекарRowChanged" msprop:Generator_UserTableName="Бібліотекар" msprop:Generator_RowChangingName="БібліотекарRowChanging" msprop:Generator_RowClassName="БібліотекарRow" msprop:Generator_TableClassName="БібліотекарDataTable" msprop:Generator_TableVarName="tableБібліотекар">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_x0020_Бібліотекара" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID Бібліотекара" msprop:Generator_ColumnPropNameInTable="ID_БібліотекараColumn" msprop:Generator_ColumnPropNameInRow="ID_Бібліотекара" msprop:Generator_ColumnVarNameInTable="columnID_Бібліотекара" type="xs:int" />
-              <xs:element name="Ім_x0027_я" msprop:Generator_UserColumnName="Ім'я" msprop:Generator_ColumnPropNameInTable="_Ім_яColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я" msprop:Generator_ColumnVarNameInTable="_columnІм_я" minOccurs="0">
+              <xs:element name="ID_x0020_Бібліотекара" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_БібліотекараColumn" msprop:Generator_ColumnPropNameInRow="ID_Бібліотекара" msprop:Generator_UserColumnName="ID Бібліотекара" msprop:Generator_ColumnVarNameInTable="columnID_Бібліотекара" type="xs:int" />
+              <xs:element name="Ім_x0027_я" msprop:Generator_ColumnPropNameInTable="_Ім_яColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я" msprop:Generator_UserColumnName="Ім'я" msprop:Generator_ColumnVarNameInTable="_columnІм_я" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Прізвище" msprop:Generator_UserColumnName="Прізвище" msprop:Generator_ColumnPropNameInTable="ПрізвищеColumn" msprop:Generator_ColumnPropNameInRow="Прізвище" msprop:Generator_ColumnVarNameInTable="columnПрізвище" minOccurs="0">
+              <xs:element name="Прізвище" msprop:Generator_ColumnPropNameInTable="ПрізвищеColumn" msprop:Generator_ColumnPropNameInRow="Прізвище" msprop:Generator_UserColumnName="Прізвище" msprop:Generator_ColumnVarNameInTable="columnПрізвище" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="По-Батькові" msprop:Generator_UserColumnName="По-Батькові" msprop:Generator_ColumnPropNameInTable="_По_БатьковіColumn" msprop:Generator_ColumnPropNameInRow="_По_Батькові" msprop:Generator_ColumnVarNameInTable="_columnПо_Батькові" minOccurs="0">
+              <xs:element name="По-Батькові" msprop:Generator_ColumnPropNameInTable="_По_БатьковіColumn" msprop:Generator_ColumnPropNameInRow="_По_Батькові" msprop:Generator_UserColumnName="По-Батькові" msprop:Generator_ColumnVarNameInTable="_columnПо_Батькові" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Позиція" msprop:Generator_UserColumnName="Позиція" msprop:Generator_ColumnPropNameInTable="ПозиціяColumn" msprop:Generator_ColumnPropNameInRow="Позиція" msprop:Generator_ColumnVarNameInTable="columnПозиція" minOccurs="0">
+              <xs:element name="Позиція" msprop:Generator_ColumnPropNameInTable="ПозиціяColumn" msprop:Generator_ColumnPropNameInRow="Позиція" msprop:Generator_UserColumnName="Позиція" msprop:Generator_ColumnVarNameInTable="columnПозиція" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Підрозділ" msprop:Generator_UserColumnName="Підрозділ" msprop:Generator_ColumnPropNameInTable="ПідрозділColumn" msprop:Generator_ColumnPropNameInRow="Підрозділ" msprop:Generator_ColumnVarNameInTable="columnПідрозділ" minOccurs="0">
+              <xs:element name="Підрозділ" msprop:Generator_ColumnPropNameInTable="ПідрозділColumn" msprop:Generator_ColumnPropNameInRow="Підрозділ" msprop:Generator_UserColumnName="Підрозділ" msprop:Generator_ColumnVarNameInTable="columnПідрозділ" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Стаж_x0020_Роботи" msprop:Generator_UserColumnName="Стаж Роботи" msprop:Generator_ColumnPropNameInTable="Стаж_РоботиColumn" msprop:Generator_ColumnPropNameInRow="Стаж_Роботи" msprop:Generator_ColumnVarNameInTable="columnСтаж_Роботи" type="xs:int" minOccurs="0" />
+              <xs:element name="Стаж_x0020_Роботи" msprop:Generator_ColumnPropNameInTable="Стаж_РоботиColumn" msprop:Generator_ColumnPropNameInRow="Стаж_Роботи" msprop:Generator_UserColumnName="Стаж Роботи" msprop:Generator_ColumnVarNameInTable="columnСтаж_Роботи" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Заказ" msprop:Generator_RowClassName="ЗаказRow" msprop:Generator_RowEvHandlerName="ЗаказRowChangeEventHandler" msprop:Generator_RowDeletedName="ЗаказRowDeleted" msprop:Generator_RowDeletingName="ЗаказRowDeleting" msprop:Generator_RowEvArgName="ЗаказRowChangeEvent" msprop:Generator_TablePropName="Заказ" msprop:Generator_RowChangedName="ЗаказRowChanged" msprop:Generator_UserTableName="Заказ" msprop:Generator_RowChangingName="ЗаказRowChanging" msprop:Generator_TableClassName="ЗаказDataTable" msprop:Generator_TableVarName="tableЗаказ">
+        <xs:element name="Заказ" msprop:Generator_RowEvHandlerName="ЗаказRowChangeEventHandler" msprop:Generator_RowDeletedName="ЗаказRowDeleted" msprop:Generator_RowDeletingName="ЗаказRowDeleting" msprop:Generator_RowEvArgName="ЗаказRowChangeEvent" msprop:Generator_TablePropName="Заказ" msprop:Generator_RowChangedName="ЗаказRowChanged" msprop:Generator_UserTableName="Заказ" msprop:Generator_RowChangingName="ЗаказRowChanging" msprop:Generator_RowClassName="ЗаказRow" msprop:Generator_TableClassName="ЗаказDataTable" msprop:Generator_TableVarName="tableЗаказ">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_x0020_Заказу" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID Заказу" msprop:Generator_ColumnPropNameInTable="ID_ЗаказуColumn" msprop:Generator_ColumnPropNameInRow="ID_Заказу" msprop:Generator_ColumnVarNameInTable="columnID_Заказу" type="xs:int" />
-              <xs:element name="ID_x0020_Бібліотекара" msprop:Generator_UserColumnName="ID Бібліотекара" msprop:Generator_ColumnPropNameInTable="ID_БібліотекараColumn" msprop:Generator_ColumnPropNameInRow="ID_Бібліотекара" msprop:Generator_ColumnVarNameInTable="columnID_Бібліотекара" type="xs:int" minOccurs="0" />
-              <xs:element name="ID_x0020_Кніги" msprop:Generator_UserColumnName="ID Кніги" msprop:Generator_ColumnPropNameInTable="ID_КнігиColumn" msprop:Generator_ColumnPropNameInRow="ID_Кніги" msprop:Generator_ColumnVarNameInTable="columnID_Кніги" type="xs:int" minOccurs="0" />
-              <xs:element name="ID_x0020_Працівника" msprop:Generator_UserColumnName="ID Працівника" msprop:Generator_ColumnPropNameInTable="ID_ПрацівникаColumn" msprop:Generator_ColumnPropNameInRow="ID_Працівника" msprop:Generator_ColumnVarNameInTable="columnID_Працівника" type="xs:int" minOccurs="0" />
-              <xs:element name="Дата_x0020_Заказу" msprop:Generator_UserColumnName="Дата Заказу" msprop:Generator_ColumnPropNameInTable="Дата_ЗаказуColumn" msprop:Generator_ColumnPropNameInRow="Дата_Заказу" msprop:Generator_ColumnVarNameInTable="columnДата_Заказу" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Дата_x0020_Повернення" msprop:Generator_UserColumnName="Дата Повернення" msprop:Generator_ColumnPropNameInTable="Дата_ПоверненняColumn" msprop:Generator_ColumnPropNameInRow="Дата_Повернення" msprop:Generator_ColumnVarNameInTable="columnДата_Повернення" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ID_x0020_Заказу" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_ЗаказуColumn" msprop:Generator_ColumnPropNameInRow="ID_Заказу" msprop:Generator_UserColumnName="ID Заказу" msprop:Generator_ColumnVarNameInTable="columnID_Заказу" type="xs:int" />
+              <xs:element name="ID_x0020_Бібліотекара" msprop:Generator_ColumnPropNameInTable="ID_БібліотекараColumn" msprop:Generator_ColumnPropNameInRow="ID_Бібліотекара" msprop:Generator_UserColumnName="ID Бібліотекара" msprop:Generator_ColumnVarNameInTable="columnID_Бібліотекара" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_x0020_Кніги" msprop:Generator_ColumnPropNameInTable="ID_КнігиColumn" msprop:Generator_ColumnPropNameInRow="ID_Кніги" msprop:Generator_UserColumnName="ID Кніги" msprop:Generator_ColumnVarNameInTable="columnID_Кніги" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_x0020_Працівника" msprop:Generator_ColumnPropNameInTable="ID_ПрацівникаColumn" msprop:Generator_ColumnPropNameInRow="ID_Працівника" msprop:Generator_UserColumnName="ID Працівника" msprop:Generator_ColumnVarNameInTable="columnID_Працівника" type="xs:int" minOccurs="0" />
+              <xs:element name="Дата_x0020_Заказу" msprop:Generator_ColumnPropNameInTable="Дата_ЗаказуColumn" msprop:Generator_ColumnPropNameInRow="Дата_Заказу" msprop:Generator_UserColumnName="Дата Заказу" msprop:Generator_ColumnVarNameInTable="columnДата_Заказу" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Дата_x0020_Повернення" msprop:Generator_ColumnPropNameInTable="Дата_ПоверненняColumn" msprop:Generator_ColumnPropNameInRow="Дата_Повернення" msprop:Generator_UserColumnName="Дата Повернення" msprop:Generator_ColumnVarNameInTable="columnДата_Повернення" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Зберігання" msprop:Generator_RowClassName="ЗберіганняRow" msprop:Generator_RowEvHandlerName="ЗберіганняRowChangeEventHandler" msprop:Generator_RowDeletedName="ЗберіганняRowDeleted" msprop:Generator_RowDeletingName="ЗберіганняRowDeleting" msprop:Generator_RowEvArgName="ЗберіганняRowChangeEvent" msprop:Generator_TablePropName="Зберігання" msprop:Generator_RowChangedName="ЗберіганняRowChanged" msprop:Generator_UserTableName="Зберігання" msprop:Generator_RowChangingName="ЗберіганняRowChanging" msprop:Generator_TableClassName="ЗберіганняDataTable" msprop:Generator_TableVarName="tableЗберігання">
+        <xs:element name="Зберігання" msprop:Generator_RowEvHandlerName="ЗберіганняRowChangeEventHandler" msprop:Generator_RowDeletedName="ЗберіганняRowDeleted" msprop:Generator_RowDeletingName="ЗберіганняRowDeleting" msprop:Generator_RowEvArgName="ЗберіганняRowChangeEvent" msprop:Generator_TablePropName="Зберігання" msprop:Generator_RowChangedName="ЗберіганняRowChanged" msprop:Generator_UserTableName="Зберігання" msprop:Generator_RowChangingName="ЗберіганняRowChanging" msprop:Generator_RowClassName="ЗберіганняRow" msprop:Generator_TableClassName="ЗберіганняDataTable" msprop:Generator_TableVarName="tableЗберігання">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_x0020_Зберігання" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID Зберігання" msprop:Generator_ColumnPropNameInTable="ID_ЗберіганняColumn" msprop:Generator_ColumnPropNameInRow="ID_Зберігання" msprop:Generator_ColumnVarNameInTable="columnID_Зберігання" type="xs:int" />
-              <xs:element name="ID_x0020_Сховища" msprop:Generator_UserColumnName="ID Сховища" msprop:Generator_ColumnPropNameInTable="ID_СховищаColumn" msprop:Generator_ColumnPropNameInRow="ID_Сховища" msprop:Generator_ColumnVarNameInTable="columnID_Сховища" type="xs:int" minOccurs="0" />
-              <xs:element name="ID_x0020_Книги" msprop:Generator_UserColumnName="ID Книги" msprop:Generator_ColumnPropNameInTable="ID_КнигиColumn" msprop:Generator_ColumnPropNameInRow="ID_Книги" msprop:Generator_ColumnVarNameInTable="columnID_Книги" type="xs:int" minOccurs="0" />
-              <xs:element name="Дата_x0020_поступу" msprop:Generator_UserColumnName="Дата поступу" msprop:Generator_ColumnPropNameInTable="Дата_поступуColumn" msprop:Generator_ColumnPropNameInRow="Дата_поступу" msprop:Generator_ColumnVarNameInTable="columnДата_поступу" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Термін_x0020_Зберігання" msprop:Generator_UserColumnName="Термін Зберігання" msprop:Generator_ColumnPropNameInTable="Термін_ЗберіганняColumn" msprop:Generator_ColumnPropNameInRow="Термін_Зберігання" msprop:Generator_ColumnVarNameInTable="columnТермін_Зберігання" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_x0020_Зберігання" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_ЗберіганняColumn" msprop:Generator_ColumnPropNameInRow="ID_Зберігання" msprop:Generator_UserColumnName="ID Зберігання" msprop:Generator_ColumnVarNameInTable="columnID_Зберігання" type="xs:int" />
+              <xs:element name="ID_x0020_Сховища" msprop:Generator_ColumnPropNameInTable="ID_СховищаColumn" msprop:Generator_ColumnPropNameInRow="ID_Сховища" msprop:Generator_UserColumnName="ID Сховища" msprop:Generator_ColumnVarNameInTable="columnID_Сховища" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_x0020_Книги" msprop:Generator_ColumnPropNameInTable="ID_КнигиColumn" msprop:Generator_ColumnPropNameInRow="ID_Книги" msprop:Generator_UserColumnName="ID Книги" msprop:Generator_ColumnVarNameInTable="columnID_Книги" type="xs:int" minOccurs="0" />
+              <xs:element name="Дата_x0020_поступу" msprop:Generator_ColumnPropNameInTable="Дата_поступуColumn" msprop:Generator_ColumnPropNameInRow="Дата_поступу" msprop:Generator_UserColumnName="Дата поступу" msprop:Generator_ColumnVarNameInTable="columnДата_поступу" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Термін_x0020_Зберігання" msprop:Generator_ColumnPropNameInTable="Термін_ЗберіганняColumn" msprop:Generator_ColumnPropNameInRow="Термін_Зберігання" msprop:Generator_UserColumnName="Термін Зберігання" msprop:Generator_ColumnVarNameInTable="columnТермін_Зберігання" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Книга" msprop:Generator_RowClassName="КнигаRow" msprop:Generator_RowEvHandlerName="КнигаRowChangeEventHandler" msprop:Generator_RowDeletedName="КнигаRowDeleted" msprop:Generator_RowDeletingName="КнигаRowDeleting" msprop:Generator_RowEvArgName="КнигаRowChangeEvent" msprop:Generator_TablePropName="Книга" msprop:Generator_RowChangedName="КнигаRowChanged" msprop:Generator_UserTableName="Книга" msprop:Generator_RowChangingName="КнигаRowChanging" msprop:Generator_TableClassName="КнигаDataTable" msprop:Generator_TableVarName="tableКнига">
+        <xs:element name="Книга" msprop:Generator_RowEvHandlerName="КнигаRowChangeEventHandler" msprop:Generator_RowDeletedName="КнигаRowDeleted" msprop:Generator_RowDeletingName="КнигаRowDeleting" msprop:Generator_RowEvArgName="КнигаRowChangeEvent" msprop:Generator_TablePropName="Книга" msprop:Generator_RowChangedName="КнигаRowChanged" msprop:Generator_UserTableName="Книга" msprop:Generator_RowChangingName="КнигаRowChanging" msprop:Generator_RowClassName="КнигаRow" msprop:Generator_TableClassName="КнигаDataTable" msprop:Generator_TableVarName="tableКнига">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_x0020_Книги" msprop:Generator_UserColumnName="ID Книги" msprop:Generator_ColumnPropNameInTable="ID_КнигиColumn" msprop:Generator_ColumnPropNameInRow="ID_Книги" msprop:Generator_ColumnVarNameInTable="columnID_Книги" type="xs:int" />
-              <xs:element name="ISBN" msprop:Generator_UserColumnName="ISBN" msprop:Generator_ColumnPropNameInTable="ISBNColumn" msprop:Generator_ColumnPropNameInRow="ISBN" msprop:Generator_ColumnVarNameInTable="columnISBN" type="xs:string" minOccurs="0" />
-              <xs:element name="Тип_x0020_Палітурки" msprop:Generator_UserColumnName="Тип Палітурки" msprop:Generator_ColumnPropNameInTable="Тип_ПалітуркиColumn" msprop:Generator_ColumnPropNameInRow="Тип_Палітурки" msprop:Generator_ColumnVarNameInTable="columnТип_Палітурки" minOccurs="0">
+              <xs:element name="ID_x0020_Книги" msprop:Generator_ColumnPropNameInTable="ID_КнигиColumn" msprop:Generator_ColumnPropNameInRow="ID_Книги" msprop:Generator_UserColumnName="ID Книги" msprop:Generator_ColumnVarNameInTable="columnID_Книги" type="xs:int" />
+              <xs:element name="ISBN" msprop:Generator_ColumnPropNameInTable="ISBNColumn" msprop:Generator_ColumnPropNameInRow="ISBN" msprop:Generator_UserColumnName="ISBN" msprop:Generator_ColumnVarNameInTable="columnISBN" type="xs:string" minOccurs="0" />
+              <xs:element name="Тип_x0020_Палітурки" msprop:Generator_ColumnPropNameInTable="Тип_ПалітуркиColumn" msprop:Generator_ColumnPropNameInRow="Тип_Палітурки" msprop:Generator_UserColumnName="Тип Палітурки" msprop:Generator_ColumnVarNameInTable="columnТип_Палітурки" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Технічний_x0020_Стан" msprop:Generator_UserColumnName="Технічний Стан" msprop:Generator_ColumnPropNameInTable="Технічний_СтанColumn" msprop:Generator_ColumnPropNameInRow="Технічний_Стан" msprop:Generator_ColumnVarNameInTable="columnТехнічний_Стан" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Напрямок" msprop:Generator_RowClassName="НапрямокRow" msprop:Generator_RowEvHandlerName="НапрямокRowChangeEventHandler" msprop:Generator_RowDeletedName="НапрямокRowDeleted" msprop:Generator_RowDeletingName="НапрямокRowDeleting" msprop:Generator_RowEvArgName="НапрямокRowChangeEvent" msprop:Generator_TablePropName="Напрямок" msprop:Generator_RowChangedName="НапрямокRowChanged" msprop:Generator_UserTableName="Напрямок" msprop:Generator_RowChangingName="НапрямокRowChanging" msprop:Generator_TableClassName="НапрямокDataTable" msprop:Generator_TableVarName="tableНапрямок">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Назва_x0020_Напрямку" msprop:Generator_UserColumnName="Назва Напрямку" msprop:Generator_ColumnPropNameInTable="Назва_НапрямкуColumn" msprop:Generator_ColumnPropNameInRow="Назва_Напрямку" msprop:Generator_ColumnVarNameInTable="columnНазва_Напрямку">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Опис" msprop:Generator_UserColumnName="Опис" msprop:Generator_ColumnPropNameInTable="ОписColumn" msprop:Generator_ColumnPropNameInRow="Опис" msprop:Generator_ColumnVarNameInTable="columnОпис" minOccurs="0">
+              <xs:element name="Технічний_x0020_Стан" msprop:Generator_ColumnPropNameInTable="Технічний_СтанColumn" msprop:Generator_ColumnPropNameInRow="Технічний_Стан" msprop:Generator_UserColumnName="Технічний Стан" msprop:Generator_ColumnVarNameInTable="columnТехнічний_Стан" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -746,92 +726,112 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Пише" msprop:Generator_RowClassName="ПишеRow" msprop:Generator_RowEvHandlerName="ПишеRowChangeEventHandler" msprop:Generator_RowDeletedName="ПишеRowDeleted" msprop:Generator_RowDeletingName="ПишеRowDeleting" msprop:Generator_RowEvArgName="ПишеRowChangeEvent" msprop:Generator_TablePropName="Пише" msprop:Generator_RowChangedName="ПишеRowChanged" msprop:Generator_UserTableName="Пише" msprop:Generator_RowChangingName="ПишеRowChanging" msprop:Generator_TableClassName="ПишеDataTable" msprop:Generator_TableVarName="tableПише">
+        <xs:element name="Напрямок" msprop:Generator_RowEvHandlerName="НапрямокRowChangeEventHandler" msprop:Generator_RowDeletedName="НапрямокRowDeleted" msprop:Generator_RowDeletingName="НапрямокRowDeleting" msprop:Generator_RowEvArgName="НапрямокRowChangeEvent" msprop:Generator_TablePropName="Напрямок" msprop:Generator_RowChangedName="НапрямокRowChanged" msprop:Generator_UserTableName="Напрямок" msprop:Generator_RowChangingName="НапрямокRowChanging" msprop:Generator_RowClassName="НапрямокRow" msprop:Generator_TableClassName="НапрямокDataTable" msprop:Generator_TableVarName="tableНапрямок">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ISBN_x0020_Книги" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ISBN Книги" msprop:Generator_ColumnPropNameInTable="ISBN_КнигиColumn" msprop:Generator_ColumnPropNameInRow="ISBN_Книги" msprop:Generator_ColumnVarNameInTable="columnISBN_Книги" type="xs:string" />
-              <xs:element name="Назва_x0020_Книги" msprop:Generator_UserColumnName="Назва Книги" msprop:Generator_ColumnPropNameInTable="Назва_КнигиColumn" msprop:Generator_ColumnPropNameInRow="Назва_Книги" msprop:Generator_ColumnVarNameInTable="columnНазва_Книги" minOccurs="0">
+              <xs:element name="Назва_x0020_Напрямку" msprop:Generator_ColumnPropNameInTable="Назва_НапрямкуColumn" msprop:Generator_ColumnPropNameInRow="Назва_Напрямку" msprop:Generator_UserColumnName="Назва Напрямку" msprop:Generator_ColumnVarNameInTable="columnНазва_Напрямку">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Назва_x0020_Напряму" msprop:Generator_UserColumnName="Назва Напряму" msprop:Generator_ColumnPropNameInTable="Назва_НапрямуColumn" msprop:Generator_ColumnPropNameInRow="Назва_Напряму" msprop:Generator_ColumnVarNameInTable="columnНазва_Напряму" minOccurs="0">
+              <xs:element name="Опис" msprop:Generator_ColumnPropNameInTable="ОписColumn" msprop:Generator_ColumnPropNameInRow="Опис" msprop:Generator_UserColumnName="Опис" msprop:Generator_ColumnVarNameInTable="columnОпис" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Ім_x0027_я_x0020_Автора" msprop:Generator_UserColumnName="Ім'я Автора" msprop:Generator_ColumnPropNameInTable="_Ім_я_АвтораColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я_Автора" msprop:Generator_ColumnVarNameInTable="_columnІм_я_Автора" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Дата_x0020_Написання" msprop:Generator_UserColumnName="Дата Написання" msprop:Generator_ColumnPropNameInTable="Дата_НаписанняColumn" msprop:Generator_ColumnPropNameInRow="Дата_Написання" msprop:Generator_ColumnVarNameInTable="columnДата_Написання" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Кількість_x0020_Сторінок" msprop:Generator_UserColumnName="Кількість Сторінок" msprop:Generator_ColumnPropNameInTable="Кількість_СторінокColumn" msprop:Generator_ColumnPropNameInRow="Кількість_Сторінок" msprop:Generator_ColumnVarNameInTable="columnКількість_Сторінок" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Працівник" msprop:Generator_RowClassName="ПрацівникRow" msprop:Generator_RowEvHandlerName="ПрацівникRowChangeEventHandler" msprop:Generator_RowDeletedName="ПрацівникRowDeleted" msprop:Generator_RowDeletingName="ПрацівникRowDeleting" msprop:Generator_RowEvArgName="ПрацівникRowChangeEvent" msprop:Generator_TablePropName="Працівник" msprop:Generator_RowChangedName="ПрацівникRowChanged" msprop:Generator_UserTableName="Працівник" msprop:Generator_RowChangingName="ПрацівникRowChanging" msprop:Generator_TableClassName="ПрацівникDataTable" msprop:Generator_TableVarName="tableПрацівник">
+        <xs:element name="Пише" msprop:Generator_RowEvHandlerName="ПишеRowChangeEventHandler" msprop:Generator_RowDeletedName="ПишеRowDeleted" msprop:Generator_RowDeletingName="ПишеRowDeleting" msprop:Generator_RowEvArgName="ПишеRowChangeEvent" msprop:Generator_TablePropName="Пише" msprop:Generator_RowChangedName="ПишеRowChanged" msprop:Generator_UserTableName="Пише" msprop:Generator_RowChangingName="ПишеRowChanging" msprop:Generator_RowClassName="ПишеRow" msprop:Generator_TableClassName="ПишеDataTable" msprop:Generator_TableVarName="tableПише">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_x0020_працівника" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID працівника" msprop:Generator_ColumnPropNameInTable="ID_працівникаColumn" msprop:Generator_ColumnPropNameInRow="ID_працівника" msprop:Generator_ColumnVarNameInTable="columnID_працівника" type="xs:int" />
-              <xs:element name="Ім_x0027_я" msprop:Generator_UserColumnName="Ім'я" msprop:Generator_ColumnPropNameInTable="_Ім_яColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я" msprop:Generator_ColumnVarNameInTable="_columnІм_я" minOccurs="0">
+              <xs:element name="ISBN_x0020_Книги" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ISBN_КнигиColumn" msprop:Generator_ColumnPropNameInRow="ISBN_Книги" msprop:Generator_UserColumnName="ISBN Книги" msprop:Generator_ColumnVarNameInTable="columnISBN_Книги" type="xs:string" />
+              <xs:element name="Назва_x0020_Книги" msprop:Generator_ColumnPropNameInTable="Назва_КнигиColumn" msprop:Generator_ColumnPropNameInRow="Назва_Книги" msprop:Generator_UserColumnName="Назва Книги" msprop:Generator_ColumnVarNameInTable="columnНазва_Книги" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Прізвище" msprop:Generator_UserColumnName="Прізвище" msprop:Generator_ColumnPropNameInTable="ПрізвищеColumn" msprop:Generator_ColumnPropNameInRow="Прізвище" msprop:Generator_ColumnVarNameInTable="columnПрізвище" minOccurs="0">
+              <xs:element name="Назва_x0020_Напряму" msprop:Generator_ColumnPropNameInTable="Назва_НапрямуColumn" msprop:Generator_ColumnPropNameInRow="Назва_Напряму" msprop:Generator_UserColumnName="Назва Напряму" msprop:Generator_ColumnVarNameInTable="columnНазва_Напряму" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="По-Батькові" msprop:Generator_UserColumnName="По-Батькові" msprop:Generator_ColumnPropNameInTable="_По_БатьковіColumn" msprop:Generator_ColumnPropNameInRow="_По_Батькові" msprop:Generator_ColumnVarNameInTable="_columnПо_Батькові" minOccurs="0">
+              <xs:element name="Ім_x0027_я_x0020_Автора" msprop:Generator_ColumnPropNameInTable="_Ім_я_АвтораColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я_Автора" msprop:Generator_UserColumnName="Ім'я Автора" msprop:Generator_ColumnVarNameInTable="_columnІм_я_Автора" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Позиція" msprop:Generator_UserColumnName="Позиція" msprop:Generator_ColumnPropNameInTable="ПозиціяColumn" msprop:Generator_ColumnPropNameInRow="Позиція" msprop:Generator_ColumnVarNameInTable="columnПозиція" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Підрозділ" msprop:Generator_UserColumnName="Підрозділ" msprop:Generator_ColumnPropNameInTable="ПідрозділColumn" msprop:Generator_ColumnPropNameInRow="Підрозділ" msprop:Generator_ColumnVarNameInTable="columnПідрозділ" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Стаж_x0020_Роботи" msprop:Generator_UserColumnName="Стаж Роботи" msprop:Generator_ColumnPropNameInTable="Стаж_РоботиColumn" msprop:Generator_ColumnPropNameInRow="Стаж_Роботи" msprop:Generator_ColumnVarNameInTable="columnСтаж_Роботи" type="xs:int" minOccurs="0" />
+              <xs:element name="Дата_x0020_Написання" msprop:Generator_ColumnPropNameInTable="Дата_НаписанняColumn" msprop:Generator_ColumnPropNameInRow="Дата_Написання" msprop:Generator_UserColumnName="Дата Написання" msprop:Generator_ColumnVarNameInTable="columnДата_Написання" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Кількість_x0020_Сторінок" msprop:Generator_ColumnPropNameInTable="Кількість_СторінокColumn" msprop:Generator_ColumnPropNameInRow="Кількість_Сторінок" msprop:Generator_UserColumnName="Кількість Сторінок" msprop:Generator_ColumnVarNameInTable="columnКількість_Сторінок" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Сховище" msprop:Generator_RowClassName="СховищеRow" msprop:Generator_RowEvHandlerName="СховищеRowChangeEventHandler" msprop:Generator_RowDeletedName="СховищеRowDeleted" msprop:Generator_RowDeletingName="СховищеRowDeleting" msprop:Generator_RowEvArgName="СховищеRowChangeEvent" msprop:Generator_TablePropName="Сховище" msprop:Generator_RowChangedName="СховищеRowChanged" msprop:Generator_UserTableName="Сховище" msprop:Generator_RowChangingName="СховищеRowChanging" msprop:Generator_TableClassName="СховищеDataTable" msprop:Generator_TableVarName="tableСховище">
+        <xs:element name="Працівник" msprop:Generator_RowEvHandlerName="ПрацівникRowChangeEventHandler" msprop:Generator_RowDeletedName="ПрацівникRowDeleted" msprop:Generator_RowDeletingName="ПрацівникRowDeleting" msprop:Generator_RowEvArgName="ПрацівникRowChangeEvent" msprop:Generator_TablePropName="Працівник" msprop:Generator_RowChangedName="ПрацівникRowChanged" msprop:Generator_UserTableName="Працівник" msprop:Generator_RowChangingName="ПрацівникRowChanging" msprop:Generator_RowClassName="ПрацівникRow" msprop:Generator_TableClassName="ПрацівникDataTable" msprop:Generator_TableVarName="tableПрацівник">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_x0020_Сховища" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID Сховища" msprop:Generator_ColumnPropNameInTable="ID_СховищаColumn" msprop:Generator_ColumnPropNameInRow="ID_Сховища" msprop:Generator_ColumnVarNameInTable="columnID_Сховища" type="xs:int" />
-              <xs:element name="Адреса" msprop:Generator_UserColumnName="Адреса" msprop:Generator_ColumnPropNameInTable="АдресаColumn" msprop:Generator_ColumnPropNameInRow="Адреса" msprop:Generator_ColumnVarNameInTable="columnАдреса" minOccurs="0">
+              <xs:element name="ID_x0020_працівника" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_працівникаColumn" msprop:Generator_ColumnPropNameInRow="ID_працівника" msprop:Generator_UserColumnName="ID працівника" msprop:Generator_ColumnVarNameInTable="columnID_працівника" type="xs:int" />
+              <xs:element name="Ім_x0027_я" msprop:Generator_ColumnPropNameInTable="_Ім_яColumn" msprop:Generator_ColumnPropNameInRow="_Ім_я" msprop:Generator_UserColumnName="Ім'я" msprop:Generator_ColumnVarNameInTable="_columnІм_я" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Кількість_x0020_Місць" msprop:Generator_UserColumnName="Кількість Місць" msprop:Generator_ColumnPropNameInTable="Кількість_МісцьColumn" msprop:Generator_ColumnPropNameInRow="Кількість_Місць" msprop:Generator_ColumnVarNameInTable="columnКількість_Місць" type="xs:int" minOccurs="0" />
-              <xs:element name="Кількість_x0020_Зайнятих_x0020_Місць" msprop:Generator_UserColumnName="Кількість Зайнятих Місць" msprop:Generator_ColumnPropNameInTable="Кількість_Зайнятих_МісцьColumn" msprop:Generator_ColumnPropNameInRow="Кількість_Зайнятих_Місць" msprop:Generator_ColumnVarNameInTable="columnКількість_Зайнятих_Місць" type="xs:int" minOccurs="0" />
+              <xs:element name="Прізвище" msprop:Generator_ColumnPropNameInTable="ПрізвищеColumn" msprop:Generator_ColumnPropNameInRow="Прізвище" msprop:Generator_UserColumnName="Прізвище" msprop:Generator_ColumnVarNameInTable="columnПрізвище" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="По-Батькові" msprop:Generator_ColumnPropNameInTable="_По_БатьковіColumn" msprop:Generator_ColumnPropNameInRow="_По_Батькові" msprop:Generator_UserColumnName="По-Батькові" msprop:Generator_ColumnVarNameInTable="_columnПо_Батькові" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Позиція" msprop:Generator_ColumnPropNameInTable="ПозиціяColumn" msprop:Generator_ColumnPropNameInRow="Позиція" msprop:Generator_UserColumnName="Позиція" msprop:Generator_ColumnVarNameInTable="columnПозиція" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Підрозділ" msprop:Generator_ColumnPropNameInTable="ПідрозділColumn" msprop:Generator_ColumnPropNameInRow="Підрозділ" msprop:Generator_UserColumnName="Підрозділ" msprop:Generator_ColumnVarNameInTable="columnПідрозділ" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Стаж_x0020_Роботи" msprop:Generator_ColumnPropNameInTable="Стаж_РоботиColumn" msprop:Generator_ColumnPropNameInRow="Стаж_Роботи" msprop:Generator_UserColumnName="Стаж Роботи" msprop:Generator_ColumnVarNameInTable="columnСтаж_Роботи" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Сховище" msprop:Generator_RowEvHandlerName="СховищеRowChangeEventHandler" msprop:Generator_RowDeletedName="СховищеRowDeleted" msprop:Generator_RowDeletingName="СховищеRowDeleting" msprop:Generator_RowEvArgName="СховищеRowChangeEvent" msprop:Generator_TablePropName="Сховище" msprop:Generator_RowChangedName="СховищеRowChanged" msprop:Generator_UserTableName="Сховище" msprop:Generator_RowChangingName="СховищеRowChanging" msprop:Generator_RowClassName="СховищеRow" msprop:Generator_TableClassName="СховищеDataTable" msprop:Generator_TableVarName="tableСховище">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_x0020_Сховища" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_СховищаColumn" msprop:Generator_ColumnPropNameInRow="ID_Сховища" msprop:Generator_UserColumnName="ID Сховища" msprop:Generator_ColumnVarNameInTable="columnID_Сховища" type="xs:int" />
+              <xs:element name="Адреса" msprop:Generator_ColumnPropNameInTable="АдресаColumn" msprop:Generator_ColumnPropNameInRow="Адреса" msprop:Generator_UserColumnName="Адреса" msprop:Generator_ColumnVarNameInTable="columnАдреса" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Кількість_x0020_Місць" msprop:Generator_ColumnPropNameInTable="Кількість_МісцьColumn" msprop:Generator_ColumnPropNameInRow="Кількість_Місць" msprop:Generator_UserColumnName="Кількість Місць" msprop:Generator_ColumnVarNameInTable="columnКількість_Місць" type="xs:int" minOccurs="0" />
+              <xs:element name="Кількість_x0020_Зайнятих_x0020_Місць" msprop:Generator_ColumnPropNameInTable="Кількість_Зайнятих_МісцьColumn" msprop:Generator_ColumnPropNameInRow="Кількість_Зайнятих_Місць" msprop:Generator_UserColumnName="Кількість Зайнятих Місць" msprop:Generator_ColumnVarNameInTable="columnКількість_Зайнятих_Місць" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -876,14 +876,14 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="БібліотекарЗаказ" msdata:parent="Бібліотекар" msdata:child="Заказ" msdata:parentkey="ID_x0020_Бібліотекара" msdata:childkey="ID_x0020_Бібліотекара" msprop:Generator_UserParentTable="Бібліотекар" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationБібліотекарЗаказ" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_UserRelationName="БібліотекарЗаказ" msprop:Generator_ParentPropName="БібліотекарRow" />
-      <msdata:Relationship name="КнигаЗаказ" msdata:parent="Книга" msdata:child="Заказ" msdata:parentkey="ID_x0020_Книги" msdata:childkey="ID_x0020_Кніги" msprop:Generator_UserParentTable="Книга" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationКнигаЗаказ" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_ParentPropName="КнигаRow" msprop:Generator_UserRelationName="КнигаЗаказ" />
-      <msdata:Relationship name="ПрацівникЗаказ" msdata:parent="Працівник" msdata:child="Заказ" msdata:parentkey="ID_x0020_працівника" msdata:childkey="ID_x0020_Працівника" msprop:Generator_UserParentTable="Працівник" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationПрацівникЗаказ" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_ParentPropName="ПрацівникRow" msprop:Generator_UserRelationName="ПрацівникЗаказ" />
-      <msdata:Relationship name="КнигаЗберігання" msdata:parent="Книга" msdata:child="Зберігання" msdata:parentkey="ID_x0020_Книги" msdata:childkey="ID_x0020_Книги" msprop:Generator_UserParentTable="Книга" msprop:Generator_UserChildTable="Зберігання" msprop:Generator_RelationVarName="relationКнигаЗберігання" msprop:Generator_ChildPropName="GetЗберіганняRows" msprop:Generator_ParentPropName="КнигаRow" msprop:Generator_UserRelationName="КнигаЗберігання" />
-      <msdata:Relationship name="СховищеЗберігання" msdata:parent="Сховище" msdata:child="Зберігання" msdata:parentkey="ID_x0020_Сховища" msdata:childkey="ID_x0020_Сховища" msprop:Generator_UserParentTable="Сховище" msprop:Generator_UserChildTable="Зберігання" msprop:Generator_RelationVarName="relationСховищеЗберігання" msprop:Generator_ChildPropName="GetЗберіганняRows" msprop:Generator_ParentPropName="СховищеRow" msprop:Generator_UserRelationName="СховищеЗберігання" />
-      <msdata:Relationship name="АвторПише" msdata:parent="Автор" msdata:child="Пише" msdata:parentkey="Ім_x0027_я_x0020_Автора" msdata:childkey="Ім_x0027_я_x0020_Автора" msprop:Generator_UserParentTable="Автор" msprop:Generator_UserChildTable="Пише" msprop:Generator_RelationVarName="relationАвторПише" msprop:Generator_ChildPropName="GetПишеRows" msprop:Generator_UserRelationName="АвторПише" msprop:Generator_ParentPropName="АвторRow" />
-      <msdata:Relationship name="НапрямокПише" msdata:parent="Напрямок" msdata:child="Пише" msdata:parentkey="Назва_x0020_Напрямку" msdata:childkey="Назва_x0020_Напряму" msprop:Generator_UserParentTable="Напрямок" msprop:Generator_UserChildTable="Пише" msprop:Generator_RelationVarName="relationНапрямокПише" msprop:Generator_ChildPropName="GetПишеRows" msprop:Generator_UserRelationName="НапрямокПише" msprop:Generator_ParentPropName="НапрямокRow" />
-      <msdata:Relationship name="Пише_Книга" msdata:parent="Пише" msdata:child="Книга" msdata:parentkey="ISBN_x0020_Книги" msdata:childkey="ISBN" msprop:Generator_UserParentTable="Пише" msprop:Generator_UserChildTable="Книга" msprop:Generator_RelationVarName="relationПише_Книга" msprop:Generator_UserRelationName="Пише_Книга" msprop:Generator_ChildPropName="GetКнигаRows" msprop:Generator_ParentPropName="ПишеRow" />
+      <msdata:Relationship name="БібліотекарЗаказ" msdata:parent="Бібліотекар" msdata:child="Заказ" msdata:parentkey="ID_x0020_Бібліотекара" msdata:childkey="ID_x0020_Бібліотекара" msprop:Generator_UserParentTable="Бібліотекар" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationБібліотекарЗаказ" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_ParentPropName="БібліотекарRow" msprop:Generator_UserRelationName="БібліотекарЗаказ" />
+      <msdata:Relationship name="КнигаЗаказ" msdata:parent="Книга" msdata:child="Заказ" msdata:parentkey="ID_x0020_Книги" msdata:childkey="ID_x0020_Кніги" msprop:Generator_UserParentTable="Книга" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationКнигаЗаказ" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_UserRelationName="КнигаЗаказ" msprop:Generator_ParentPropName="КнигаRow" />
+      <msdata:Relationship name="ПрацівникЗаказ" msdata:parent="Працівник" msdata:child="Заказ" msdata:parentkey="ID_x0020_працівника" msdata:childkey="ID_x0020_Працівника" msprop:Generator_UserParentTable="Працівник" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationПрацівникЗаказ" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_UserRelationName="ПрацівникЗаказ" msprop:Generator_ParentPropName="ПрацівникRow" />
+      <msdata:Relationship name="КнигаЗберігання" msdata:parent="Книга" msdata:child="Зберігання" msdata:parentkey="ID_x0020_Книги" msdata:childkey="ID_x0020_Книги" msprop:Generator_UserParentTable="Книга" msprop:Generator_UserChildTable="Зберігання" msprop:Generator_RelationVarName="relationКнигаЗберігання" msprop:Generator_ChildPropName="GetЗберіганняRows" msprop:Generator_UserRelationName="КнигаЗберігання" msprop:Generator_ParentPropName="КнигаRow" />
+      <msdata:Relationship name="СховищеЗберігання" msdata:parent="Сховище" msdata:child="Зберігання" msdata:parentkey="ID_x0020_Сховища" msdata:childkey="ID_x0020_Сховища" msprop:Generator_UserParentTable="Сховище" msprop:Generator_UserChildTable="Зберігання" msprop:Generator_RelationVarName="relationСховищеЗберігання" msprop:Generator_ChildPropName="GetЗберіганняRows" msprop:Generator_UserRelationName="СховищеЗберігання" msprop:Generator_ParentPropName="СховищеRow" />
+      <msdata:Relationship name="АвторПише" msdata:parent="Автор" msdata:child="Пише" msdata:parentkey="Ім_x0027_я_x0020_Автора" msdata:childkey="Ім_x0027_я_x0020_Автора" msprop:Generator_UserParentTable="Автор" msprop:Generator_UserChildTable="Пише" msprop:Generator_RelationVarName="relationАвторПише" msprop:Generator_ChildPropName="GetПишеRows" msprop:Generator_ParentPropName="АвторRow" msprop:Generator_UserRelationName="АвторПише" />
+      <msdata:Relationship name="НапрямокПише" msdata:parent="Напрямок" msdata:child="Пише" msdata:parentkey="Назва_x0020_Напрямку" msdata:childkey="Назва_x0020_Напряму" msprop:Generator_UserParentTable="Напрямок" msprop:Generator_UserChildTable="Пише" msprop:Generator_RelationVarName="relationНапрямокПише" msprop:Generator_ChildPropName="GetПишеRows" msprop:Generator_ParentPropName="НапрямокRow" msprop:Generator_UserRelationName="НапрямокПише" />
+      <msdata:Relationship name="Пише_Книга" msdata:parent="Пише" msdata:child="Книга" msdata:parentkey="ISBN_x0020_Книги" msdata:childkey="ISBN" msprop:Generator_UserParentTable="Пише" msprop:Generator_UserChildTable="Книга" msprop:Generator_RelationVarName="relationПише_Книга" msprop:Generator_ChildPropName="GetКнигаRows" msprop:Generator_ParentPropName="ПишеRow" msprop:Generator_UserRelationName="Пише_Книга" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
