@@ -751,6 +751,94 @@ namespace Lab5
             SearchResult.Show();
             RefreshTables();
         }
+        static bool isAscending = true;
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            //Variables
+
+            int tabIndex = tabControl1.SelectedIndex;
+            string column = "";
+            
+            switch (tabIndex)
+
+            {
+                case 0:
+                    column = dataGridView1.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 1:
+                    column = dataGridView2.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 2:
+                    column = dataGridView3.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 3:
+                    column = dataGridView4.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 4:
+                    column = dataGridView5.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 5:
+                    column = dataGridView6.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 6:
+                    column = dataGridView7.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 7:
+                    column = dataGridView8.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 8:
+                    column = dataGridView9.CurrentCell.OwningColumn.HeaderText;
+                    break;
+
+            }
+            if(isAscending == true)
+            {
+                query = "SELECT * FROM [" + tabControl1.SelectedTab.Text + "] ORDER BY [" + column + "] ASC;";
+                isAscending = false;
+            }
+            else
+            {
+                query = "SELECT * FROM [" + tabControl1.SelectedTab.Text + "] ORDER BY [" + column + "] DESC;";
+                isAscending = true;
+            }
+            switch (tabIndex)
+
+            {
+                case 0:
+                    table1 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 1:
+                    table2 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 2:
+                    table3 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 3:
+                    table4 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 4:
+                    table5 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 5:
+                    table6 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 6:
+                    table7 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 7:
+                    table8 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 8:
+                    table9 = new OleDbDataAdapter(query, connection);
+                    break;
+
+            }
+
+            RefreshTables();
+
+        }
+
+
     }
 }
 

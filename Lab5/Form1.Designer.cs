@@ -126,6 +126,7 @@
             this.Edit = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.sortButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -1033,7 +1034,7 @@
             // Delete
             // 
             this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Delete.Location = new System.Drawing.Point(417, 471);
+            this.Delete.Location = new System.Drawing.Point(499, 471);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(113, 45);
             this.Delete.TabIndex = 1;
@@ -1044,7 +1045,7 @@
             // Add
             // 
             this.Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Add.Location = new System.Drawing.Point(179, 471);
+            this.Add.Location = new System.Drawing.Point(261, 471);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(113, 45);
             this.Add.TabIndex = 2;
@@ -1055,7 +1056,7 @@
             // Edit
             // 
             this.Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Edit.Location = new System.Drawing.Point(298, 471);
+            this.Edit.Location = new System.Drawing.Point(380, 471);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(113, 45);
             this.Edit.TabIndex = 3;
@@ -1081,11 +1082,24 @@
             this.searchBox.Size = new System.Drawing.Size(144, 20);
             this.searchBox.TabIndex = 5;
             // 
+            // sortButton
+            // 
+            this.sortButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sortButton.Location = new System.Drawing.Point(12, 471);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(113, 45);
+            this.sortButton.TabIndex = 6;
+            this.sortButton.Text = "Sort";
+            this.sortButton.UseMnemonic = false;
+            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 528);
+            this.Controls.Add(this.sortButton);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.Edit);
@@ -1239,6 +1253,7 @@
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button sortButton;
     }
 }
 
