@@ -861,6 +861,7 @@ namespace Lab5
 
             //Variables
             int tabIndex = tabControl1.SelectedIndex;
+            Type ColumnValueType = null;
             string column = "";
             string FilterValue;
             bool isString = true, isInt = false, isDate = false;
@@ -883,13 +884,61 @@ namespace Lab5
             TextBox promptText = new TextBox() { Left = promptFilter.Width / 2 - 150, Top = promptFilter.Height - 150, Width = promptFilter.Width / 2 };
             promptFilter.Controls.Add(confirm);
             promptFilter.Controls.Add(cancel);
-            promptFilter.Controls.Add(BiggerButton);
-            promptFilter.Controls.Add(SmallerButton);
-            promptFilter.Controls.Add(EqualsButton);
             promptFilter.Controls.Add(promptLabel);
             promptFilter.Controls.Add(promptText);
             cancel.Anchor = AnchorStyles.Bottom;
             confirm.Anchor = AnchorStyles.Bottom;
+
+            switch (tabIndex)
+            {
+                case 0:
+                    column = dataGridView1.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView1.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 1:
+                    column = dataGridView2.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView2.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 2:
+                    column = dataGridView3.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView3.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 3:
+                    column = dataGridView4.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView4.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 4:
+                    column = dataGridView5.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView5.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 5:
+                    column = dataGridView6.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView6.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 6:
+                    column = dataGridView7.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView7.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 7:
+                    column = dataGridView8.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView8.CurrentCell.OwningColumn.ValueType;
+                    break;
+                case 8:
+                    column = dataGridView9.CurrentCell.OwningColumn.HeaderText;
+                    ColumnValueType = dataGridView9.CurrentCell.OwningColumn.ValueType;
+                    break;
+
+            }
+
+            if(ColumnValueType != Type.GetType("System.String"))
+            {
+                promptFilter.Controls.Add(BiggerButton);
+                promptFilter.Controls.Add(SmallerButton);
+                promptFilter.Controls.Add(EqualsButton);
+
+            }
+
+
             promptFilter.ShowDialog();
             if (promptFilter.DialogResult != DialogResult.OK)
             {
@@ -897,80 +946,44 @@ namespace Lab5
                 return;
             }
             FilterValue = promptText.Text;
-            if(BiggerButton.Checked)
+            if (ColumnValueType != Type.GetType("System.String"))
             {
-                filterSign = ">";
+                if (BiggerButton.Checked)
+                {
+                    filterSign = ">";
 
-            }
-            if (SmallerButton.Checked)
-            {
-                filterSign = "<";
+                }
+                if (SmallerButton.Checked)
+                {
+                    filterSign = "<";
 
-            }
-            if(EqualsButton.Checked)
-            {
-                filterSign = "=";
-            }
+                }
+                if (EqualsButton.Checked)
+                {
+                    filterSign = "=";
+                }
 
-            if (int.TryParse(FilterValue, out _))
-            {
-                isInt = true;
-                isString = false;
-                isDate = false;
-            }
-            else if (System.DateTime.TryParse(FilterValue, out _))
-            {
-                isInt = false;
-                isString = false;
-                isDate = true;
-            }
-            switch (tabIndex)
-            {
-                case 0:
-                    column = dataGridView1.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 1:
-                    column = dataGridView2.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 2:
-                    column = dataGridView3.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 3:
-                    column = dataGridView4.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 4:
-                    column = dataGridView5.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 5:
-                    column = dataGridView6.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 6:
-                    column = dataGridView7.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 7:
-                    column = dataGridView8.CurrentCell.OwningColumn.HeaderText;
-                    break;
-                case 8:
-                    column = dataGridView9.CurrentCell.OwningColumn.HeaderText;
-                    break;
-
-            }
-            query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE [" + column + "] " + filterSign +" ";
-            if (isInt == true)
-            {
-                query += FilterValue;
-            }
-            else if (isDate == true)
-            {
-                query += "#" + FilterValue + "#";
+                query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE [" + column + "] " + filterSign + " ";
+                if (ColumnValueType == Type.GetType("System.Int32"))
+                {
+                    query += FilterValue;
+                }
+                else if (ColumnValueType == Type.GetType("System.DateTime"))
+                {
+                    query += "#" + FilterValue + "#";
+                }
+                else
+                {
+                    query += "'" + FilterValue + "'";
+                }
+                query += ";";
             }
             else
             {
-                query += "'" + FilterValue + "'";
+                query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE [" + column + "] LIKE '%" + FilterValue + "%';";
             }
-            query += ";";
+           
             switch (tabIndex)
-
             {
                 case 0:
                     table1 = new OleDbDataAdapter(query, connection);
