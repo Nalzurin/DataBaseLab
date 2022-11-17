@@ -129,8 +129,64 @@ namespace Lab5
             table8.Fill(table8DS);
             table9DS.Rows.Clear();
             table9.Fill(table9DS);
+        }
 
+        void ResetColor()
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
 
+                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView2.RowCount; i++)
+            {
+
+                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView3.RowCount; i++)
+            {
+
+                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView4.RowCount; i++)
+            {
+
+                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView5.RowCount; i++)
+            {
+
+                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView6.RowCount; i++)
+            {
+
+                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView7.RowCount; i++)
+            {
+
+                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView8.RowCount; i++)
+            {
+
+                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
+            for (int i = 0; i < dataGridView9.RowCount; i++)
+            {
+
+                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+            }
         }
 
 
@@ -603,7 +659,7 @@ namespace Lab5
                 MessageBox.Show("Error, search field cannot be empty!");
                 return;
             }
-
+            ResetColor();
             //Variables
             int tabIndex = tabControl1.SelectedIndex;
             List<String> columns = new List<String>();
@@ -615,7 +671,7 @@ namespace Lab5
 
                     for (int i = 0; i < dataGridView1.RowCount; i++)
                     {
-                        for(int j = 0; j < dataGridView1.ColumnCount;j++)
+                        for (int j = 0; j < dataGridView1.ColumnCount; j++)
                         {
                             if (dataGridView1.Rows[i].Cells[j].Value.ToString() == text)
                             {
@@ -623,7 +679,7 @@ namespace Lab5
                                 dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
                             }
                         }
-                        
+
                     }
                     break;
                 case 1:
@@ -835,12 +891,14 @@ namespace Lab5
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-
+            ResetColor();
             //Variables
             int tabIndex = tabControl1.SelectedIndex;
+            int j = 0; 
             Type ColumnValueType = null;
             string FilterValue = "";
             string filterSign = "=";
+            bool isString = true;
             //Prompt Form
             Form promptFilter = new Form();
             promptFilter.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -868,35 +926,44 @@ namespace Lab5
             {
                 case 0:
                     ColumnValueType = dataGridView1.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView1.CurrentCell.OwningColumn.Index;
                     break;
                 case 1:
                     ColumnValueType = dataGridView2.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView2.CurrentCell.OwningColumn.Index;
                     break;
                 case 2:
                     ColumnValueType = dataGridView3.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView3.CurrentCell.OwningColumn.Index;
                     break;
                 case 3:
                     ColumnValueType = dataGridView4.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView4.CurrentCell.OwningColumn.Index;
                     break;
                 case 4:
                     ColumnValueType = dataGridView5.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView5.CurrentCell.OwningColumn.Index;
                     break;
                 case 5:
                     ColumnValueType = dataGridView6.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView6.CurrentCell.OwningColumn.Index;
                     break;
                 case 6:
                     ColumnValueType = dataGridView7.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView7.CurrentCell.OwningColumn.Index;
                     break;
                 case 7:
                     ColumnValueType = dataGridView8.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView8.CurrentCell.OwningColumn.Index;
                     break;
                 case 8:
                     ColumnValueType = dataGridView9.CurrentCell.OwningColumn.ValueType;
+                    j = dataGridView9.CurrentCell.OwningColumn.Index;
                     break;
 
             }
 
-            if(ColumnValueType != Type.GetType("System.String"))
+            if (ColumnValueType != Type.GetType("System.String"))
             {
                 promptFilter.Controls.Add(BiggerButton);
                 promptFilter.Controls.Add(SmallerButton);
@@ -910,6 +977,10 @@ namespace Lab5
                 return;
             }
             FilterValue = promptText.Text;
+            if (int.TryParse(FilterValue, out _))
+            {
+                isString = false;
+            }
             if (ColumnValueType != Type.GetType("System.String"))
             {
                 if (BiggerButton.Checked)
@@ -927,145 +998,500 @@ namespace Lab5
                     filterSign = "=";
                 }
             }
-                switch (tabIndex)
+            switch (tabIndex)
             {
                 case 0:
 
                     for (int i = 0; i < dataGridView1.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if(filterSign == ">")
+                            if (dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                if (dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && dataGridView1.Rows[i].Cells[j].Value > int.Parse(FilterValue, _))
-                                {
-                                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
-                                }
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
                             }
-                            
-                        }
+                            if (dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView1.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
 
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView1.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView1.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView1.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
+                            }
+                        }
                     }
                     break;
                 case 1:
                     for (int i = 0; i < dataGridView2.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView2.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView2.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView2.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView2.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView2.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView2.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView2.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView2.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView2.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView2.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView2.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView2.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView2.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView2.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView2.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
                     break;
                 case 2:
                     for (int i = 0; i < dataGridView3.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView3.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView3.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView3.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView3.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView3.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView3.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView3.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView3.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView3.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView3.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView3.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView3.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView3.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView3.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView3.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView3.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
 
                     break;
                 case 3:
                     for (int i = 0; i < dataGridView4.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView4.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView4.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView4.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView4.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView4.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView4.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView4.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView4.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView4.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView4.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView4.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView4.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView4.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView4.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView4.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView4.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
 
                     break;
                 case 4:
                     for (int i = 0; i < dataGridView5.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView5.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView5.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView5.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView5.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView5.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView5.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView5.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView5.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView5.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView5.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView5.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView5.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView5.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView5.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView5.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView5.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
 
                     break;
                 case 5:
                     for (int i = 0; i < dataGridView6.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView6.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView6.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView6.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView6.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView6.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView6.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView6.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView6.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView6.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView6.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView6.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView6.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView6.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView6.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView6.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView6.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
 
                     break;
                 case 6:
                     for (int i = 0; i < dataGridView7.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView7.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView7.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView7.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView7.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView7.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView7.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView7.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView7.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView7.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView7.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView7.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView7.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView7.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView7.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView7.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView7.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
 
                     break;
                 case 7:
                     for (int i = 0; i < dataGridView8.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView8.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView8.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView8.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView8.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView8.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView8.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView8.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView8.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView8.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView8.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView8.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView8.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView8.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView8.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView8.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView8.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
 
                     break;
                 case 8:
                     for (int i = 0; i < dataGridView9.RowCount; i++)
                     {
-                        for (int j = 0; j < dataGridView9.ColumnCount; j++)
+                        if (filterSign == ">")
                         {
-                            if (dataGridView9.Rows[i].Cells[j].Value.ToString() == FilterValue)
+                            if (dataGridView9.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView9.Rows[i].Cells[j].Value.ToString()) > int.Parse(FilterValue))
                             {
-                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView9.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView9.Rows[i].Cells[j].Value.ToString()).Month > int.Parse(FilterValue))
+                            {
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "<")
+                        {
+                            if (dataGridView9.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView9.Rows[i].Cells[j].Value.ToString()) < int.Parse(FilterValue))
+                            {
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (dataGridView9.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView9.Rows[i].Cells[j].Value.ToString()).Month < int.Parse(FilterValue))
+                            {
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+                            }
+
+                        }
+                        if (filterSign == "=")
+                        {
+                            if (dataGridView9.Rows[i].Cells[j].ValueType == Type.GetType("System.String") && dataGridView9.Rows[i].Cells[j].Value.ToString().ToLower().Contains(FilterValue.ToLower()) && isString == true)
+                            {
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Beige;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.DarkViolet;
+                            }
+
+                            if (isString == false && dataGridView9.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && Convert.ToInt32(dataGridView9.Rows[i].Cells[j].Value.ToString()) == int.Parse(FilterValue))
+                            {
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Crimson;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.CornflowerBlue;
+                            }
+                            if (isString == false && dataGridView9.Rows[i].Cells[j].ValueType == Type.GetType("System.DateTime") && Convert.ToDateTime(dataGridView9.Rows[i].Cells[j].Value.ToString()).Month == int.Parse(FilterValue))
+                            {
+
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
+
                             }
                         }
-
                     }
-
                     break;
             }
 
@@ -1075,6 +1501,7 @@ namespace Lab5
         {
             SetTables();
             RefreshTables();
+            ResetColor();
         }
     }
 }
