@@ -839,6 +839,8 @@ namespace Lab5
             //Variables
             int tabIndex = tabControl1.SelectedIndex;
             Type ColumnValueType = null;
+            string FilterValue = "";
+            string filterSign = "=";
             //Prompt Form
             Form promptFilter = new Form();
             promptFilter.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -901,8 +903,31 @@ namespace Lab5
                 promptFilter.Controls.Add(EqualsButton);
 
             }
+            promptFilter.ShowDialog();
+            if (promptFilter.DialogResult != DialogResult.OK)
+            {
+                promptFilter.Close();
+                return;
+            }
+            FilterValue = promptText.Text;
+            if (ColumnValueType != Type.GetType("System.String"))
+            {
+                if (BiggerButton.Checked)
+                {
+                    filterSign = ">";
 
-            switch (tabIndex)
+                }
+                if (SmallerButton.Checked)
+                {
+                    filterSign = "<";
+
+                }
+                if (EqualsButton.Checked)
+                {
+                    filterSign = "=";
+                }
+            }
+                switch (tabIndex)
             {
                 case 0:
 
@@ -910,11 +935,15 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView1.ColumnCount; j++)
                         {
-                            if (dataGridView1.Rows[i].Cells[j].Value.ToString() == text)
+                            if(filterSign == ">")
                             {
-                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                if (dataGridView1.Rows[i].Cells[j].ValueType == Type.GetType("System.Int32") && dataGridView1.Rows[i].Cells[j].Value > int.Parse(FilterValue, _))
+                                {
+                                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                                }
                             }
+                            
                         }
 
                     }
@@ -924,7 +953,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView2.ColumnCount; j++)
                         {
-                            if (dataGridView2.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView2.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
@@ -938,7 +967,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView3.ColumnCount; j++)
                         {
-                            if (dataGridView3.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView3.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
@@ -953,7 +982,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView4.ColumnCount; j++)
                         {
-                            if (dataGridView4.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView4.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
@@ -968,7 +997,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView5.ColumnCount; j++)
                         {
-                            if (dataGridView5.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView5.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
@@ -983,7 +1012,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView6.ColumnCount; j++)
                         {
-                            if (dataGridView6.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView6.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
@@ -998,7 +1027,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView7.ColumnCount; j++)
                         {
-                            if (dataGridView7.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView7.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
@@ -1013,7 +1042,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView8.ColumnCount; j++)
                         {
-                            if (dataGridView8.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView8.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
@@ -1028,7 +1057,7 @@ namespace Lab5
                     {
                         for (int j = 0; j < dataGridView9.ColumnCount; j++)
                         {
-                            if (dataGridView9.Rows[i].Cells[j].Value.ToString() == text)
+                            if (dataGridView9.Rows[i].Cells[j].Value.ToString() == FilterValue)
                             {
                                 dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
                                 dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
