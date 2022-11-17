@@ -32,9 +32,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.імяАвтораDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.датаНародженняDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.magnumOpusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.авторBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lab5DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lab5DataSet = new Lab5.Lab5DataSet();
@@ -127,6 +124,11 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.sortButton = new System.Windows.Forms.Button();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.імяАвтораDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаНародженняDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.magnumOpusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -186,7 +188,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(893, 465);
+            this.tabControl1.Size = new System.Drawing.Size(1008, 465);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -195,7 +197,7 @@
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(885, 439);
+            this.tabPage1.Size = new System.Drawing.Size(1000, 439);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Автор";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -219,32 +221,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 45;
-            this.dataGridView1.Size = new System.Drawing.Size(885, 439);
+            this.dataGridView1.Size = new System.Drawing.Size(1000, 439);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // імяАвтораDataGridViewTextBoxColumn
-            // 
-            this.імяАвтораDataGridViewTextBoxColumn.DataPropertyName = "Ім\'я Автора";
-            this.імяАвтораDataGridViewTextBoxColumn.HeaderText = "Ім\'я Автора";
-            this.імяАвтораDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.імяАвтораDataGridViewTextBoxColumn.Name = "імяАвтораDataGridViewTextBoxColumn";
-            this.імяАвтораDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // датаНародженняDataGridViewTextBoxColumn
-            // 
-            this.датаНародженняDataGridViewTextBoxColumn.DataPropertyName = "Дата Народження";
-            this.датаНародженняDataGridViewTextBoxColumn.HeaderText = "Дата Народження";
-            this.датаНародженняDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.датаНародженняDataGridViewTextBoxColumn.Name = "датаНародженняDataGridViewTextBoxColumn";
-            this.датаНародженняDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // magnumOpusDataGridViewTextBoxColumn
-            // 
-            this.magnumOpusDataGridViewTextBoxColumn.DataPropertyName = "Magnum Opus";
-            this.magnumOpusDataGridViewTextBoxColumn.HeaderText = "Magnum Opus";
-            this.magnumOpusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.magnumOpusDataGridViewTextBoxColumn.Name = "magnumOpusDataGridViewTextBoxColumn";
-            this.magnumOpusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // авторBindingSource1
             // 
@@ -1034,7 +1012,7 @@
             // Delete
             // 
             this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Delete.Location = new System.Drawing.Point(499, 471);
+            this.Delete.Location = new System.Drawing.Point(614, 471);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(113, 45);
             this.Delete.TabIndex = 1;
@@ -1045,7 +1023,7 @@
             // Add
             // 
             this.Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Add.Location = new System.Drawing.Point(261, 471);
+            this.Add.Location = new System.Drawing.Point(376, 471);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(113, 45);
             this.Add.TabIndex = 2;
@@ -1056,7 +1034,7 @@
             // Edit
             // 
             this.Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Edit.Location = new System.Drawing.Point(380, 471);
+            this.Edit.Location = new System.Drawing.Point(495, 471);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(113, 45);
             this.Edit.TabIndex = 3;
@@ -1067,7 +1045,7 @@
             // searchButton
             // 
             this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.Location = new System.Drawing.Point(768, 471);
+            this.searchButton.Location = new System.Drawing.Point(883, 471);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(113, 45);
             this.searchButton.TabIndex = 4;
@@ -1077,7 +1055,8 @@
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(618, 484);
+            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBox.Location = new System.Drawing.Point(733, 484);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(144, 20);
             this.searchBox.TabIndex = 5;
@@ -1094,11 +1073,61 @@
             this.sortButton.UseVisualStyleBackColor = true;
             this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
             // 
+            // filterButton
+            // 
+            this.filterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterButton.Location = new System.Drawing.Point(131, 471);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(113, 45);
+            this.filterButton.TabIndex = 7;
+            this.filterButton.Text = "Filter";
+            this.filterButton.UseMnemonic = false;
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // resetButton
+            // 
+            this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetButton.Location = new System.Drawing.Point(257, 471);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(113, 45);
+            this.resetButton.TabIndex = 8;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseMnemonic = false;
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // імяАвтораDataGridViewTextBoxColumn
+            // 
+            this.імяАвтораDataGridViewTextBoxColumn.DataPropertyName = "Ім\'я Автора";
+            this.імяАвтораDataGridViewTextBoxColumn.HeaderText = "Ім\'я Автора";
+            this.імяАвтораDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.імяАвтораDataGridViewTextBoxColumn.Name = "імяАвтораDataGridViewTextBoxColumn";
+            this.імяАвтораDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаНародженняDataGridViewTextBoxColumn
+            // 
+            this.датаНародженняDataGridViewTextBoxColumn.DataPropertyName = "Дата Народження";
+            this.датаНародженняDataGridViewTextBoxColumn.HeaderText = "Дата Народження";
+            this.датаНародженняDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.датаНародженняDataGridViewTextBoxColumn.Name = "датаНародженняDataGridViewTextBoxColumn";
+            this.датаНародженняDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // magnumOpusDataGridViewTextBoxColumn
+            // 
+            this.magnumOpusDataGridViewTextBoxColumn.DataPropertyName = "Magnum Opus";
+            this.magnumOpusDataGridViewTextBoxColumn.HeaderText = "Magnum Opus";
+            this.magnumOpusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.magnumOpusDataGridViewTextBoxColumn.Name = "magnumOpusDataGridViewTextBoxColumn";
+            this.magnumOpusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 528);
+            this.ClientSize = new System.Drawing.Size(1008, 528);
+            this.Controls.Add(this.resetButton);
+            this.Controls.Add(this.filterButton);
             this.Controls.Add(this.sortButton);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.searchButton);
@@ -1107,7 +1136,7 @@
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Data Base";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tabControl1.ResumeLayout(false);
@@ -1163,9 +1192,6 @@
         private Lab5DataSetTableAdapters.АвторTableAdapter авторTableAdapter;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn імяАвтораDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn датаНародженняDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn magnumOpusDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource авторBindingSource1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -1254,6 +1280,11 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn імяАвтораDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаНародженняDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn magnumOpusDataGridViewTextBoxColumn;
     }
 }
 

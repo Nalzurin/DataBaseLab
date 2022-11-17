@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Data.Common;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using Microsoft.VisualBasic;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Lab5
@@ -43,25 +46,7 @@ namespace Lab5
         {
             connection = new OleDbConnection(connectString);
             connection.Open();
-
-            string sqlTable1 = "SELECT * FROM Автор";
-            string sqlTable2 = "SELECT * FROM Бібліотекар";
-            string sqlTable3 = "SELECT * FROM Заказ";
-            string sqlTable4 = "SELECT * FROM Зберігання";
-            string sqlTable5 = "SELECT * FROM Книга";
-            string sqlTable6 = "SELECT * FROM Працівник";
-            string sqlTable7 = "SELECT * FROM Напрямок";
-            string sqlTable8 = "SELECT * FROM Пише";
-            string sqlTable9 = "SELECT * FROM Сховище";
-            table1 = new OleDbDataAdapter(sqlTable1, connection);
-            table2 = new OleDbDataAdapter(sqlTable2, connection);
-            table3 = new OleDbDataAdapter(sqlTable3, connection);
-            table4 = new OleDbDataAdapter(sqlTable4, connection);
-            table5 = new OleDbDataAdapter(sqlTable5, connection);
-            table6 = new OleDbDataAdapter(sqlTable6, connection);
-            table7 = new OleDbDataAdapter(sqlTable7, connection);
-            table8 = new OleDbDataAdapter(sqlTable8, connection);
-            table9 = new OleDbDataAdapter(sqlTable9, connection);
+            SetTables();
             table1DS = new DataTable();
             table2DS = new DataTable();
             table3DS = new DataTable();
@@ -96,8 +81,28 @@ namespace Lab5
             dataGridView7.DataSource = table7DS;
             dataGridView8.DataSource = table8DS;
             dataGridView9.DataSource = table9DS;
+        }
+        private void SetTables()
+        {
+            string sqlTable1 = "SELECT * FROM Автор";
+            string sqlTable2 = "SELECT * FROM Бібліотекар";
+            string sqlTable3 = "SELECT * FROM Заказ";
+            string sqlTable4 = "SELECT * FROM Зберігання";
+            string sqlTable5 = "SELECT * FROM Книга";
+            string sqlTable6 = "SELECT * FROM Працівник";
+            string sqlTable7 = "SELECT * FROM Напрямок";
+            string sqlTable8 = "SELECT * FROM Пише";
+            string sqlTable9 = "SELECT * FROM Сховище";
 
-
+            table1 = new OleDbDataAdapter(sqlTable1, connection);
+            table2 = new OleDbDataAdapter(sqlTable2, connection);
+            table3 = new OleDbDataAdapter(sqlTable3, connection);
+            table4 = new OleDbDataAdapter(sqlTable4, connection);
+            table5 = new OleDbDataAdapter(sqlTable5, connection);
+            table6 = new OleDbDataAdapter(sqlTable6, connection);
+            table7 = new OleDbDataAdapter(sqlTable7, connection);
+            table8 = new OleDbDataAdapter(sqlTable8, connection);
+            table9 = new OleDbDataAdapter(sqlTable9, connection);
         }
         public void CloseDB()
         {
@@ -590,6 +595,26 @@ namespace Lab5
 
             }
         }
+
+        private Form gridForm(DataGridView searchView)
+        {
+
+            //New Form for showing results of search
+            Form SearchResult = new Form();
+            SearchResult.FormBorderStyle = FormBorderStyle.FixedDialog;
+            SearchResult.StartPosition = FormStartPosition.CenterScreen;
+            SearchResult.Width = 750;
+            SearchResult.Height = 500;
+            searchView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            searchView.Dock = DockStyle.Fill;
+            searchView.ReadOnly = true;
+            searchView.AllowUserToAddRows = false;
+            searchView.AllowUserToDeleteRows = false;
+            SearchResult.Controls.Add(searchView);
+            return SearchResult;
+        }
+
+
         private void searchButton_Click(object sender, EventArgs e)
         {
             //First check if anything is written in the search field
@@ -607,20 +632,8 @@ namespace Lab5
             //New Table for Searching
             OleDbDataAdapter tableSearch;
             DataTable tableSearchData = new DataTable();
-            //New Form for showing results of search
             DataGridView searchView = new DataGridView();
-            Form SearchResult = new Form();
-            SearchResult.FormBorderStyle = FormBorderStyle.FixedDialog;
-            SearchResult.StartPosition = FormStartPosition.CenterScreen;
-            SearchResult.Width = 750;
-            SearchResult.Height = 500;
-            searchView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            searchView.Dock = DockStyle.Fill;
-            searchView.ReadOnly = true;
-            searchView.AllowUserToAddRows = false;
-            searchView.AllowUserToDeleteRows = false;
-            SearchResult.Controls.Add(searchView);
-            if(int.TryParse(text, out _))
+            if (int.TryParse(text, out _))
             {
                 isInt = true;
                 isString = false;
@@ -718,7 +731,7 @@ namespace Lab5
                 case 8:
                     for (int i = 0; i < dataGridView9.ColumnCount; i++)
                     {
-                        if(dataGridView9.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        if (dataGridView9.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
                         {
                             columns.Add(dataGridView9.Columns[i].HeaderText.ToString());
                         }
@@ -727,27 +740,33 @@ namespace Lab5
                     break;
             }
             query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE ";
-            for( int i = 0; i < columns.Count;i++)
+            for (int i = 0; i < columns.Count; i++)
             {
-                if(isInt == true)
+                if (isInt == true)
                 {
                     query += "[" + columns[i] + "] = " + searchBox.Text + "";
+                }
+                else if (isDate == true)
+                {
+                    query += "[" + columns[i] + "] = #" + searchBox.Text + "#";
                 }
                 else
                 {
                     query += "[" + columns[i] + "] = '" + searchBox.Text + "'";
                 }
-                
-                if(i != columns.Count-1)
+
+                if (i != columns.Count - 1)
                 {
                     query += " OR ";
                 }
             }
             query += ";";
+
             searchView.DataSource = null;
-            tableSearch = new OleDbDataAdapter(query,connection);
+            tableSearch = new OleDbDataAdapter(query, connection);
             tableSearch.Fill(tableSearchData);
             searchView.DataSource = tableSearchData;
+            Form SearchResult = gridForm(searchView);
             SearchResult.Show();
             RefreshTables();
         }
@@ -758,9 +777,8 @@ namespace Lab5
 
             int tabIndex = tabControl1.SelectedIndex;
             string column = "";
-            
-            switch (tabIndex)
 
+            switch (tabIndex)
             {
                 case 0:
                     column = dataGridView1.CurrentCell.OwningColumn.HeaderText;
@@ -791,7 +809,7 @@ namespace Lab5
                     break;
 
             }
-            if(isAscending == true)
+            if (isAscending == true)
             {
                 query = "SELECT * FROM [" + tabControl1.SelectedTab.Text + "] ORDER BY [" + column + "] ASC;";
                 isAscending = false;
@@ -838,7 +856,160 @@ namespace Lab5
 
         }
 
+        private void filterButton_Click(object sender, EventArgs e)
+        {
 
+            //Variables
+            int tabIndex = tabControl1.SelectedIndex;
+            string column = "";
+            string FilterValue;
+            bool isString = true, isInt = false, isDate = false;
+            string filterSign = "";
+            //Prompt Form
+            Form promptFilter = new Form();
+            promptFilter.FormBorderStyle = FormBorderStyle.FixedDialog;
+            promptFilter.StartPosition = FormStartPosition.CenterScreen;
+            promptFilter.MaximizeBox = false;
+            promptFilter.MinimizeBox = false;
+            promptFilter.Width = 500;
+            promptFilter.Height = 250;
+            promptFilter.Text = "Filter";
+            RadioButton BiggerButton = new RadioButton() { Text = "Bigger", Left = promptFilter.Width / 2 - 175, Top = 50, Name = "FilterChoice", BackColor = System.Drawing.Color.Transparent };
+            RadioButton SmallerButton = new RadioButton() { Text = "Smaller", Left = promptFilter.Width / 2 - 50, Top = 50, Name = "FilterChoice", BackColor = System.Drawing.Color.Transparent };
+            RadioButton EqualsButton = new RadioButton() { Text = "Equals", Left = promptFilter.Width / 2 + 75, Top = 50, Name = "FilterChoice", BackColor = System.Drawing.Color.Transparent };
+            Button confirm = new Button() { Text = "Confirm", Left = promptFilter.Width / 2 - 150, Width = 100, Top = promptFilter.Height - 100, Height = 50, DialogResult = DialogResult.OK };
+            Button cancel = new Button() { Text = "Cancel", Left = promptFilter.Width / 2 + 50, Width = 100, Top = promptFilter.Height - 100, Height = 50, DialogResult = DialogResult.Cancel };
+            Label promptLabel = new Label() { Text = "Input Value", Left = promptFilter.Width / 2 - 150, Top = promptFilter.Height - 175, BackColor = System.Drawing.Color.Transparent };
+            TextBox promptText = new TextBox() { Left = promptFilter.Width / 2 - 150, Top = promptFilter.Height - 150, Width = promptFilter.Width / 2 };
+            promptFilter.Controls.Add(confirm);
+            promptFilter.Controls.Add(cancel);
+            promptFilter.Controls.Add(BiggerButton);
+            promptFilter.Controls.Add(SmallerButton);
+            promptFilter.Controls.Add(EqualsButton);
+            promptFilter.Controls.Add(promptLabel);
+            promptFilter.Controls.Add(promptText);
+            cancel.Anchor = AnchorStyles.Bottom;
+            confirm.Anchor = AnchorStyles.Bottom;
+            promptFilter.ShowDialog();
+            if (promptFilter.DialogResult != DialogResult.OK)
+            {
+                promptFilter.Close();
+                return;
+            }
+            FilterValue = promptText.Text;
+            if(BiggerButton.Checked)
+            {
+                filterSign = ">";
+
+            }
+            if (SmallerButton.Checked)
+            {
+                filterSign = "<";
+
+            }
+            if(EqualsButton.Checked)
+            {
+                filterSign = "=";
+            }
+
+            if (int.TryParse(FilterValue, out _))
+            {
+                isInt = true;
+                isString = false;
+                isDate = false;
+            }
+            else if (System.DateTime.TryParse(FilterValue, out _))
+            {
+                isInt = false;
+                isString = false;
+                isDate = true;
+            }
+            switch (tabIndex)
+            {
+                case 0:
+                    column = dataGridView1.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 1:
+                    column = dataGridView2.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 2:
+                    column = dataGridView3.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 3:
+                    column = dataGridView4.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 4:
+                    column = dataGridView5.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 5:
+                    column = dataGridView6.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 6:
+                    column = dataGridView7.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 7:
+                    column = dataGridView8.CurrentCell.OwningColumn.HeaderText;
+                    break;
+                case 8:
+                    column = dataGridView9.CurrentCell.OwningColumn.HeaderText;
+                    break;
+
+            }
+            query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE [" + column + "] " + filterSign +" ";
+            if (isInt == true)
+            {
+                query += FilterValue;
+            }
+            else if (isDate == true)
+            {
+                query += "#" + FilterValue + "#";
+            }
+            else
+            {
+                query += "'" + FilterValue + "'";
+            }
+            query += ";";
+            switch (tabIndex)
+
+            {
+                case 0:
+                    table1 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 1:
+                    table2 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 2:
+                    table3 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 3:
+                    table4 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 4:
+                    table5 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 5:
+                    table6 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 6:
+                    table7 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 7:
+                    table8 = new OleDbDataAdapter(query, connection);
+                    break;
+                case 8:
+                    table9 = new OleDbDataAdapter(query, connection);
+                    break;
+
+            }
+
+            RefreshTables();
+
+        }
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            SetTables();
+            RefreshTables();
+        }
     }
 }
 
