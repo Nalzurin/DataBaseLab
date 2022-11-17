@@ -595,26 +595,6 @@ namespace Lab5
 
             }
         }
-
-        private Form gridForm(DataGridView searchView)
-        {
-
-            //New Form for showing results of search
-            Form SearchResult = new Form();
-            SearchResult.FormBorderStyle = FormBorderStyle.FixedDialog;
-            SearchResult.StartPosition = FormStartPosition.CenterScreen;
-            SearchResult.Width = 750;
-            SearchResult.Height = 500;
-            searchView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            searchView.Dock = DockStyle.Fill;
-            searchView.ReadOnly = true;
-            searchView.AllowUserToAddRows = false;
-            searchView.AllowUserToDeleteRows = false;
-            SearchResult.Controls.Add(searchView);
-            return SearchResult;
-        }
-
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             //First check if anything is written in the search field
@@ -629,146 +609,143 @@ namespace Lab5
             List<String> columns = new List<String>();
             bool isString = true, isInt = false, isDate = false;
             string text = searchBox.Text;
-            //New Table for Searching
-            OleDbDataAdapter tableSearch;
-            DataTable tableSearchData = new DataTable();
-            DataGridView searchView = new DataGridView();
-            if (int.TryParse(text, out _))
-            {
-                isInt = true;
-                isString = false;
-                isDate = false;
-            }
-            else if (System.DateTime.TryParse(text, out _))
-            {
-                isInt = false;
-                isString = false;
-                isDate = true;
-            }
-
             switch (tabIndex)
-
             {
                 case 0:
 
-                    for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
                     {
-                        if (dataGridView1.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView1.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView1.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for(int j = 0; j < dataGridView1.ColumnCount;j++)
                         {
-                            columns.Add(dataGridView1.Columns[i].HeaderText.ToString());
+                            if (dataGridView1.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+                        
                     }
                     break;
                 case 1:
-                    for (int i = 0; i < dataGridView2.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView2.RowCount; i++)
                     {
-                        if (dataGridView2.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView2.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView2.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView2.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView2.Columns[i].HeaderText.ToString());
+                            if (dataGridView2.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
                     break;
                 case 2:
-                    for (int i = 0; i < dataGridView3.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView3.RowCount; i++)
                     {
-                        if (dataGridView3.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView3.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView3.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView3.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView3.Columns[i].HeaderText.ToString());
+                            if (dataGridView3.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
 
                     break;
                 case 3:
-                    for (int i = 0; i < dataGridView4.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView4.RowCount; i++)
                     {
-                        if (dataGridView4.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView4.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView4.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView4.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView4.Columns[i].HeaderText.ToString());
+                            if (dataGridView4.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
 
                     break;
                 case 4:
-                    for (int i = 0; i < dataGridView5.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView5.RowCount; i++)
                     {
-                        if (dataGridView5.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView5.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView5.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView5.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView5.Columns[i].HeaderText.ToString());
+                            if (dataGridView5.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
 
                     break;
                 case 5:
-                    for (int i = 0; i < dataGridView6.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView6.RowCount; i++)
                     {
-                        if (dataGridView6.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView6.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView6.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView6.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView6.Columns[i].HeaderText.ToString());
+                            if (dataGridView6.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
 
                     break;
                 case 6:
-                    for (int i = 0; i < dataGridView7.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView7.RowCount; i++)
                     {
-                        if (dataGridView7.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView7.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView7.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView7.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView7.Columns[i].HeaderText.ToString());
+                            if (dataGridView7.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
 
                     break;
                 case 7:
-                    for (int i = 0; i < dataGridView8.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView8.RowCount; i++)
                     {
-                        if (dataGridView8.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView8.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView8.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView8.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView8.Columns[i].HeaderText.ToString());
+                            if (dataGridView8.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
 
                     break;
                 case 8:
-                    for (int i = 0; i < dataGridView9.ColumnCount; i++)
+                    for (int i = 0; i < dataGridView9.RowCount; i++)
                     {
-                        if (dataGridView9.Columns[i].ValueType == Type.GetType("System.String") && isString == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.Int32") && isInt == true || dataGridView9.Columns[i].ValueType == Type.GetType("System.DateTime") && isDate == true)
+                        for (int j = 0; j < dataGridView9.ColumnCount; j++)
                         {
-                            columns.Add(dataGridView9.Columns[i].HeaderText.ToString());
+                            if (dataGridView9.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
                         }
+
                     }
 
                     break;
             }
-            query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE ";
-            for (int i = 0; i < columns.Count; i++)
-            {
-                if (isInt == true)
-                {
-                    query += "[" + columns[i] + "] = " + searchBox.Text + "";
-                }
-                else if (isDate == true)
-                {
-                    query += "[" + columns[i] + "] = #" + searchBox.Text + "#";
-                }
-                else
-                {
-                    query += "[" + columns[i] + "] = '" + searchBox.Text + "'";
-                }
-
-                if (i != columns.Count - 1)
-                {
-                    query += " OR ";
-                }
-            }
-            query += ";";
-
-            searchView.DataSource = null;
-            tableSearch = new OleDbDataAdapter(query, connection);
-            tableSearch.Fill(tableSearchData);
-            searchView.DataSource = tableSearchData;
-            Form SearchResult = gridForm(searchView);
-            SearchResult.Show();
-            RefreshTables();
         }
         static bool isAscending = true;
         private void sortButton_Click(object sender, EventArgs e)
@@ -862,10 +839,6 @@ namespace Lab5
             //Variables
             int tabIndex = tabControl1.SelectedIndex;
             Type ColumnValueType = null;
-            string column = "";
-            string FilterValue;
-            bool isString = true, isInt = false, isDate = false;
-            string filterSign = "";
             //Prompt Form
             Form promptFilter = new Form();
             promptFilter.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -892,39 +865,30 @@ namespace Lab5
             switch (tabIndex)
             {
                 case 0:
-                    column = dataGridView1.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView1.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 1:
-                    column = dataGridView2.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView2.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 2:
-                    column = dataGridView3.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView3.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 3:
-                    column = dataGridView4.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView4.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 4:
-                    column = dataGridView5.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView5.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 5:
-                    column = dataGridView6.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView6.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 6:
-                    column = dataGridView7.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView7.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 7:
-                    column = dataGridView8.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView8.CurrentCell.OwningColumn.ValueType;
                     break;
                 case 8:
-                    column = dataGridView9.CurrentCell.OwningColumn.HeaderText;
                     ColumnValueType = dataGridView9.CurrentCell.OwningColumn.ValueType;
                     break;
 
@@ -938,84 +902,144 @@ namespace Lab5
 
             }
 
-
-            promptFilter.ShowDialog();
-            if (promptFilter.DialogResult != DialogResult.OK)
-            {
-                promptFilter.Close();
-                return;
-            }
-            FilterValue = promptText.Text;
-            if (ColumnValueType != Type.GetType("System.String"))
-            {
-                if (BiggerButton.Checked)
-                {
-                    filterSign = ">";
-
-                }
-                if (SmallerButton.Checked)
-                {
-                    filterSign = "<";
-
-                }
-                if (EqualsButton.Checked)
-                {
-                    filterSign = "=";
-                }
-
-                query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE [" + column + "] " + filterSign + " ";
-                if (ColumnValueType == Type.GetType("System.Int32"))
-                {
-                    query += FilterValue;
-                }
-                else if (ColumnValueType == Type.GetType("System.DateTime"))
-                {
-                    query += "#" + FilterValue + "#";
-                }
-                else
-                {
-                    query += "'" + FilterValue + "'";
-                }
-                query += ";";
-            }
-            else
-            {
-                query = "SELECT * FROM [" + tabControl1.SelectedTab.Text.ToString() + "] WHERE [" + column + "] LIKE '%" + FilterValue + "%';";
-            }
-           
             switch (tabIndex)
             {
                 case 0:
-                    table1 = new OleDbDataAdapter(query, connection);
+
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                        {
+                            if (dataGridView1.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
                     break;
                 case 1:
-                    table2 = new OleDbDataAdapter(query, connection);
+                    for (int i = 0; i < dataGridView2.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                        {
+                            if (dataGridView2.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView2.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
                     break;
                 case 2:
-                    table3 = new OleDbDataAdapter(query, connection);
+                    for (int i = 0; i < dataGridView3.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView3.ColumnCount; j++)
+                        {
+                            if (dataGridView3.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView3.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView3.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
+
                     break;
                 case 3:
-                    table4 = new OleDbDataAdapter(query, connection);
+                    for (int i = 0; i < dataGridView4.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView4.ColumnCount; j++)
+                        {
+                            if (dataGridView4.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView4.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView4.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
+
                     break;
                 case 4:
-                    table5 = new OleDbDataAdapter(query, connection);
+                    for (int i = 0; i < dataGridView5.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView5.ColumnCount; j++)
+                        {
+                            if (dataGridView5.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView5.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView5.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
+
                     break;
                 case 5:
-                    table6 = new OleDbDataAdapter(query, connection);
+                    for (int i = 0; i < dataGridView6.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView6.ColumnCount; j++)
+                        {
+                            if (dataGridView6.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView6.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView6.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
+
                     break;
                 case 6:
-                    table7 = new OleDbDataAdapter(query, connection);
+                    for (int i = 0; i < dataGridView7.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView7.ColumnCount; j++)
+                        {
+                            if (dataGridView7.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView7.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView7.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
+
                     break;
                 case 7:
-                    table8 = new OleDbDataAdapter(query, connection);
+                    for (int i = 0; i < dataGridView8.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView8.ColumnCount; j++)
+                        {
+                            if (dataGridView8.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView8.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView8.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
+
+                    }
+
                     break;
                 case 8:
-                    table9 = new OleDbDataAdapter(query, connection);
-                    break;
+                    for (int i = 0; i < dataGridView9.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView9.ColumnCount; j++)
+                        {
+                            if (dataGridView9.Rows[i].Cells[j].Value.ToString() == text)
+                            {
+                                dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                                dataGridView9.Rows[i].DefaultCellStyle.ForeColor = Color.Navy;
+                            }
+                        }
 
+                    }
+
+                    break;
             }
 
-            RefreshTables();
 
         }
         private void resetButton_Click(object sender, EventArgs e)
